@@ -4,5 +4,4 @@
 - using node core modules;
 - working with requests e responses (basics);
 - asynchronous code & the event loop;
-dasd
 ---
