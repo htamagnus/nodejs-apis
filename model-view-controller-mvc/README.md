@@ -17,3 +17,5 @@
 - connects model and view;
 - should only make sure that the two can communicate (in both directions);
 ---
+
+![image](https://github.com/htamagnus/Node-JS/assets/85269068/6d93cd4b-4c10-40ed-aa64-7c58ffa556eb)
