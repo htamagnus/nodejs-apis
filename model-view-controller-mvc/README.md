@@ -1,5 +1,19 @@
 # What I've learned:
-- managing data (without a database);
-- render dynamic content in our views;
-- understanding templating engines;
+- whats is the mvc;
+- adding controllers;
+- adding a model;
+---
+
+## Model:
+- responsible for representing your data;
+- responsible for managing your data (saving, fetching);
+- contains data-related logic;
+---
+## View: 
+- what the user sees;
+- shouldn't contain too much logic;
+---
+## Controller:
+- connects model and view;
+- should only make sure that the two can communicate (in both directions);
 ---
