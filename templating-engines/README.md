@@ -1,7 +1,5 @@
 # What I've learned:
-- whats is express.js;
-- using middleware;
-- working with requests & responses;
-- routing;
-- returning HTML Pages (files);
+- managing data (without a database);
+- render dynamic content in our views;
+- understanding templating engines;
 ---
