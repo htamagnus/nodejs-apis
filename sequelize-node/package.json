@@ -8,7 +8,7 @@
     "start": "nodemon app.js",
     "start-server": "node app.js"
   },
-  "author": "Hta Magnus",
+  "author": "agatha",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.18.3"
@@ -19,7 +19,6 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mysql2": "^3.3.3",
-    "nvm": "^0.0.4",
     "pug": "^2.0.3",
     "sequelize": "^6.32.0"
   }
