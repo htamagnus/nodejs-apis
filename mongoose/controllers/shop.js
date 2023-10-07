@@ -93,14 +93,18 @@ exports.postOrder = async (req, res, next) => {
       },
       products: products,
     });
-
-    const result = await order.save();
-    res.redirect("/orders");
+    return await order
+      .save()
+      .then((result) => {
+        return req.user.clearCart();
+      })
+      .then(() => {
+        res.redirect("/orders");
+      });
   } catch (err) {
     console.log(err);
   }
 };
-
 
 exports.getOrders = (req, res, next) => {
   req.user
