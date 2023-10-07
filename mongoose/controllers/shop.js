@@ -82,27 +82,24 @@ exports.postOrder = async (req, res, next) => {
   try {
     const user = await req.user.populate("cart.items.productId");
 
-    const products = user.cart.items.map((i) => {
-      return { quantity: i.quantity, productData: { ...i.productId._doc } };
-    });
+    const products = user.cart.items.map((i) => ({
+      quantity: i.quantity,
+      productData: { ...i.productId._doc },
+    }));
 
     const order = new Order({
       user: {
         name: req.user.name,
         userId: req.user,
       },
-      products: products,
+      products,
     });
-    return await order
-      .save()
-      .then((result) => {
-        return req.user.clearCart();
-      })
-      .then(() => {
-        res.redirect("/orders");
-      });
+    await order.save();
+    await req.user.clearCart();
+
+    res.redirect("/orders");
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
