@@ -23,4 +23,6 @@ Os seguintes tipos de esquemas são permitidos:
 ---
 
 # 3º: Exportar um modelo: 
+~~~javascript
 module.exports = mongoose.model('Product', productSchema);
+~~~
