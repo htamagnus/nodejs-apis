@@ -128,3 +128,48 @@ exports.postDeleteProduct = (req, res, next) => {
 };
 ~~~
 Esta função controladora é usada para excluir um produto do banco de dados com base no ID do produto fornecido na solicitação POST. Se a exclusão for bem-sucedida, uma mensagem é registrada no console e o usuário é redirecionado para a página de administração de produtos. Se houver algum erro durante o processo de exclusão, o erro é registrado no console.
+
+---
+
+# 7º Relacionando Schemas: 
+O atributo ref é usado em esquemas do Mongoose para estabelecer uma referência entre diferentes coleções em um banco de dados MongoDB. Ele é particularmente útil quando você deseja criar relacionamentos ou associações entre documentos em coleções diferentes.
+
+~~~javascript
+const Schema = mongoose.Schema;
+
+const productSchema = new Schema({
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User", // estabelece uma referencia ao uma diferente coleção chamada User
+        required: true
+    }
+});
+
+module.exports = mongoose.model('Product', productSchema);
+~~~
+- O productSchema inclui um campo chamado userId, que é um tipo Schema.Types.ObjectId e faz referência à coleção 'User'. Isso significa que o valor desse campo será o ID de um documento na coleção 'User'.
+
+~~~javascript
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+  cart: {
+    items: [
+      {
+        productId: {
+          type: Schema.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+        quantity: { type: Number, required: true },
+      },
+    ],
+  },
+});
+module.exports = mongoose.model("User", userSchema);
+~~~
+- Cada item do carrinho é representado por um objeto que inclui o productId (que é uma referência à coleção 'Product') e a quantity (a quantidade do produto no carrinho).
+- Isso permite que um usuário tenha produtos em seu carrinho e que esses produtos sejam referências a documentos da coleção 'Product'. A relação entre os usuários e os produtos é estabelecida por meio do campo productId.
+
+
+
