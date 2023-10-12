@@ -1,6 +1,6 @@
-## Mongoose é um biblioteca de Modelagem de Dados de Objeto (ou ODM, do inglês: Object Data Modeling) para MongoDB e Node.js. Ele gerencia o relacionamento entre dados, fornece a validação de esquemas e é usado como tradutor entre objetos no código e a representação desses objetos no MongoDB.
+Mongoose é um biblioteca de Modelagem de Dados de Objeto (ou ODM, do inglês: Object Data Modeling) para MongoDB e Node.js. Ele gerencia o relacionamento entre dados, fornece a validação de esquemas e é usado como tradutor entre objetos no código e a representação desses objetos no MongoDB.
 
-### O MongoDB é um banco de dados de documentos NoSQL que não possui esquemas. Isso significa que ele guarda documentos JSON e que a estrutura deles pode variar, já que não há a estrutura rígida igual a dos bancos SQL. Uma das vantagens em usar NoSQL é que acelera o desenvolvimento de aplicações e reduz a complexidade das implementações.
+O MongoDB é um banco de dados de documentos NoSQL que não possui esquemas. Isso significa que ele guarda documentos JSON e que a estrutura deles pode variar, já que não há a estrutura rígida igual a dos bancos SQL. Uma das vantagens em usar NoSQL é que acelera o desenvolvimento de aplicações e reduz a complexidade das implementações.
 
 ---
 
