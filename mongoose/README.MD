@@ -62,8 +62,8 @@ Agora, o productSchema pode ser usado para criar modelos de dados que se encaixa
 ~~~javascript
 module.exports = mongoose.model('Product', productSchema);
 ~~~
-#### Para exportar um modelo no mongoose, você define um nome para ele e indica o nome da entidade.
-#### Essa linha de código combina o esquema productSchema com o nome 'Product' para criar um modelo que representa documentos com a estrutura definida no esquema. Esse modelo pode ser usado para executar operações no banco de dados, como criar, ler, atualizar e excluir documentos na coleção 'Product'. Após essa exportação, o modelo 'Product' estará disponível para uso em outros arquivos e partes do seu aplicativo Node.js.
+Para exportar um modelo no mongoose, você define um nome para ele e indica o nome da entidade.
+Essa linha de código combina o esquema productSchema com o nome 'Product' para criar um modelo que representa documentos com a estrutura definida no esquema. Esse modelo pode ser usado para executar operações no banco de dados, como criar, ler, atualizar e excluir documentos na coleção 'Product'. Após essa exportação, o modelo 'Product' estará disponível para uso em outros arquivos e partes do seu aplicativo Node.js.
 
 ---
 
