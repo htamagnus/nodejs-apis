@@ -23,8 +23,8 @@ mongoose
 ---
 
 # 2º: Definir um esquema:
-#### O esquema define as propriedades do documento através de um objeto, onde o nome da chave corresponde ao nome da propriedade na coleção.
-#### Os seguintes tipos de esquemas são permitidos:
+O esquema define as propriedades do documento através de um objeto, onde o nome da chave corresponde ao nome da propriedade na coleção.
+Os seguintes tipos de esquemas são permitidos:
 - Array
 - Boolean (ou booleano, em português)
 - Buffer
@@ -53,8 +53,8 @@ const productSchema = new Schema({ //Criamos um novo esquema para representar a 
     }
 });
 ~~~
-#### Portanto, o productSchema descreve a estrutura dos documentos que representam produtos. Cada documento precisa ter um título, preço e descrição, e esses campos devem conter os tipos de dados especificados. 
-#### Agora, o productSchema pode ser usado para criar modelos de dados que se encaixam nesse esquema. Esses modelos são usados para interagir com a coleção no banco de dados MongoDB e realizar operações como criar, ler, atualizar e excluir documentos.
+Portanto, o productSchema descreve a estrutura dos documentos que representam produtos. Cada documento precisa ter um título, preço e descrição, e esses campos devem conter os tipos de dados especificados. 
+Agora, o productSchema pode ser usado para criar modelos de dados que se encaixam nesse esquema. Esses modelos são usados para interagir com a coleção no banco de dados MongoDB e realizar operações como criar, ler, atualizar e excluir documentos.
 
 ---
 
@@ -83,7 +83,7 @@ exports.getProducts = (req, res, next) => {
     });
 };
 ~~~
-#### O método find() do Mongoose é uma das operações mais comuns e fundamentais para recuperar documentos de um banco de dados MongoDB. Ele é usado para consultar documentos em uma coleção com base em critérios de pesquisa e retorna um ou mais documentos que correspondem a esses critérios. Essa chamada procura todos os documentos no banco de dados MongoDB associados ao modelo Product.
+O método find() do Mongoose é uma das operações mais comuns e fundamentais para recuperar documentos de um banco de dados MongoDB. Ele é usado para consultar documentos em uma coleção com base em critérios de pesquisa e retorna um ou mais documentos que correspondem a esses critérios. Essa chamada procura todos os documentos no banco de dados MongoDB associados ao modelo Product.
 
 ---
 
@@ -111,7 +111,7 @@ exports.postEditProduct = (req, res, next) => {
     .catch((err) => console.log(err)); // Se houver algum erro durante o processo de atualização ou salvamento do produto, o erro será capturado neste bloco .catch() e registrado no console.
 };
 ~~~
-#### Esse controlador é responsável por atualizar as informações de um produto no banco de dados com base nos dados enviados por um formulário de edição. Ele primeiro localiza o produto pelo ID, atualiza suas propriedades e, em seguida, salva as alterações no banco de dados. Se bem-sucedido, a resposta é redirecionada para a página de administração de produtos; caso contrário, qualquer erro é registrado no console.
+Esse controlador é responsável por atualizar as informações de um produto no banco de dados com base nos dados enviados por um formulário de edição. Ele primeiro localiza o produto pelo ID, atualiza suas propriedades e, em seguida, salva as alterações no banco de dados. Se bem-sucedido, a resposta é redirecionada para a página de administração de produtos; caso contrário, qualquer erro é registrado no console.
 
 ---
 
@@ -127,4 +127,4 @@ exports.postDeleteProduct = (req, res, next) => {
     .catch((err) => console.log(err)); //Se ocorrer algum erro durante o processo de exclusão do produto, o erro é capturado neste bloco .catch() e é registrado no console.
 };
 ~~~
-#### Esta função controladora é usada para excluir um produto do banco de dados com base no ID do produto fornecido na solicitação POST. Se a exclusão for bem-sucedida, uma mensagem é registrada no console e o usuário é redirecionado para a página de administração de produtos. Se houver algum erro durante o processo de exclusão, o erro é registrado no console.
+Esta função controladora é usada para excluir um produto do banco de dados com base no ID do produto fornecido na solicitação POST. Se a exclusão for bem-sucedida, uma mensagem é registrada no console e o usuário é redirecionado para a página de administração de produtos. Se houver algum erro durante o processo de exclusão, o erro é registrado no console.
