@@ -50,3 +50,6 @@ const productSchema = new Schema({
 ~~~javascript
 module.exports = mongoose.model('Product', productSchema);
 ~~~
+#### para exportar um modelo no mongoose, você define um nome para ele e indica o nome da entidade.
+
+---
