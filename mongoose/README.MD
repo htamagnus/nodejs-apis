@@ -171,5 +171,4 @@ module.exports = mongoose.model("User", userSchema);
 - Cada item do carrinho é representado por um objeto que inclui o productId (que é uma referência à coleção 'Product') e a quantity (a quantidade do produto no carrinho).
 - Isso permite que um usuário tenha produtos em seu carrinho e que esses produtos sejam referências a documentos da coleção 'Product'. A relação entre os usuários e os produtos é estabelecida por meio do campo productId.
 
-
-
+---
