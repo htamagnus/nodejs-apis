@@ -49,7 +49,7 @@ mongoose
         user.save()
       }
     })
-    app.listen(3007);
+    app.listen(3001);
   })
   .catch(err => {
     console.log(err);
