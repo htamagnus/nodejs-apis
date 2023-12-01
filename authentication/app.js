@@ -10,7 +10,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop';
+  'mongodb+srv://hta:agatha@cluster0.r2eb6bu.mongodb.net/shop';
 
 const app = express();
 const store = new MongoDBStore({
@@ -60,8 +60,8 @@ mongoose
     User.findOne().then(user => {
       if (!user) {
         const user = new User({
-          name: 'Max',
-          email: 'max@test.com',
+          name: 'Hta',
+          email: 'Hta@test.com',
           cart: {
             items: []
           }
