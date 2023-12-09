@@ -1,59 +1,34 @@
-# Node-JS
-Node JS &amp; Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authentication, use MongoDB, SQL &amp; much more!
+# Projeto Full Stack em Node.js
 
-# Course Outline: 
--JavaScript Refresher;
+Bem-vindo ao Projeto Full Stack em Node.js! Este projeto abrange uma ampla variedade de tecnologias e conceitos para ajudar você a se tornar proficiente na construção de apis e aplicações full-stack com Node.js.
 
--Node.JS Basics;
+## Tecnologias e conceitos utilizados 🚀
 
--Efficient Development;
-
--Using Express.js;
-
--Templating Engines;
-
--Mode-View-Controller;
-
--Advanced Routes & Models, Node + SQL (MySQL);
-
--Using Sequelize, Node + NoSQL (MongoDB);
-
--Using Mongoose;
-
--Sessions & Cookies;
-
--Authentication;
-
--Sending E-mails;
-
--Authentication Deep Dive;
-
--User Input Validation;
-
--Error Handling;
-
--File Uploads & Downloads;
-
--Pagination;
-
--Async Requests;
-
--Handling Payments; 
-
--REST API Basics;
-
--Advanced REST API Features; 
-
--Using async-await; 
-
--Websockets & Socket.io; 
-
--GraphQL;
-
--Deployment; 
-
--Beyond Web Servers; 
-
--Node + Typescript;
-
--Deno;
+- **JavaScript Refresher**: Uma rápida revisão dos conceitos básicos do JavaScript para atualizar seu conhecimento.
+- **Node.js Basics**: Conceitos fundamentais do Node.js para o desenvolvimento no lado do servidor.
+- **Efficient Development**: Melhores práticas e dicas para desenvolvimento eficiente com Node.js.
+- **Using Express.js**: Introdução ao popular framework web para Node.js, Express.js.
+- **Templating Engines**: Implementação de motores de templates para renderização de conteúdo dinâmico.
+- **Model-View-Controller (MVC)**: Compreensão e implementação da arquitetura MVC.
+- **Advanced Routes & Models, Node + SQL (MySQL)**: Roteamento avançado e trabalho com bancos de dados SQL usando MySQL.
+- **Using Sequelize, Node + NoSQL (MongoDB)**: Sequelize ORM para bancos de dados SQL e MongoDB para NoSQL.
+- **Using Mongoose**: Interação com o MongoDB usando Mongoose ODM.
+- **Sessions & Cookies**: Gerenciamento de sessões e cookies para autenticação de usuários.
+- **Authentication**: Implementação de autenticação de usuários em aplicativos Node.js.
+- **Sending E-mails**: Integração de funcionalidade de e-mail em seu aplicativo Node.js.
+- **Authentication Deep Dive**: Uma exploração mais profunda de várias estratégias de autenticação.
+- **User Input Validation**: Validação e tratamento seguro de entrada de usuários.
+- **Error Handling**: Estratégias para tratamento eficaz de erros em aplicativos Node.js.
+- **File Uploads & Downloads**: Tratamento de upload e download de arquivos.
+- **Pagination**: Implementação de paginação para grandes conjuntos de dados.
+- **Async Requests**: Tratamento de requisições assíncronas em aplicativos Node.js.
+- **Handling Payments**: Integração de funcionalidade de pagamento usando várias gateways de pagamento.
+- **REST API Basics**: Construção e consumo de APIs RESTful.
+- **Advanced REST API Features**: Recursos avançados e melhores práticas para APIs RESTful.
+- **Using async-await**: Alavancagem de async-await para código assíncrono em Node.js.
+- **Websockets & Socket.io**: Comunicação em tempo real usando Websockets e Socket.io.
+- **GraphQL**: Compreensão e implementação de GraphQL em Node.js.
+- **Deployment**: Implantação de aplicativos Node.js em produção.
+- **Beyond Web Servers**: Exploração de casos de uso além de servidores web típicos.
+- **Node + Typescript**: Integração de TypeScript em projetos Node.js.
+- **Deno**: Exploração do Deno como uma alternativa ao Node.js.
