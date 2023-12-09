@@ -1,7 +1,5 @@
 # Projeto Full Stack em Node.js
 
-Bem-vindo ao Projeto Full Stack em Node.js! Este projeto abrange uma ampla variedade de tecnologias e conceitos para ajudar você a se tornar proficiente na construção de apis e aplicações full-stack com Node.js.
-
 ## Tecnologias e conceitos utilizados 🚀
 
 - **JavaScript Refresher**: Uma rápida revisão dos conceitos básicos do JavaScript para atualizar seu conhecimento.
