@@ -2,11 +2,11 @@
 O Express.js é um framework para Node.js que simplifica o desenvolvimento de aplicativos web. Ele fornece uma variedade de recursos para construir servidores web robustos e eficientes.
 
 # Tópicos:
-1. [O que é o Express.js?](#o-que-é-o-expressjs)
-2. [Usando Middleware](#usando-middleware)
-3. [Manipulação de Solicitações e Respostas](#manipulação-de-solicitações-e-respostas)
-4. [Roteamento](#roteamento)
-5. [Retornando Páginas HTML (Arquivos)](#retornando-páginas-html-arquivos)
+1. [O que é o Express.js?](#o-que-é-o-expressjs) 🌐
+2. [Usando Middleware](#usando-middleware) 🚥
+3. [Manipulação de Solicitações e Respostas](#manipulação-de-solicitações-e-respostas) 🔄
+4. [Roteamento](#roteamento) 🛣️
+5. [Retornando Páginas HTML (Arquivos)](#retornando-páginas-html-arquivos) 🖥️
 
 ## O que é o Express.js? 🌐
 Express.js é um framework web minimalista para Node.js que facilita a criação de aplicativos web e APIs. Ele fornece uma abstração sobre o manuseio de HTTP e simplifica tarefas comuns, como roteamento, manipulação de solicitações e respostas, além de facilitar a integração com middleware.
