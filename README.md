@@ -2,7 +2,7 @@
 
 ## Tecnologias e conceitos utilizados 🚀
 
-- [JavaScript Refresher](js-quick-refresher/) : *Uma rápida revisão dos conceitos básicos do JavaScript para atualizar seu conhecimento*;
+- [JavaScript Refresher](js-quick-refresher/) : *Uma rápida revisão dos conceitos básicos do JavaScript para atualizar o conhecimento*;
 - [Node.js Basics](understanding-basics-node-js/) : *Conceitos fundamentais do Node.js para o desenvolvimento no lado do servidor*;
 - [Efficient Development](enhancing-the-app/) : *Melhores práticas e dicas para desenvolvimento eficiente com Node.js*;
 - [Using Express.js](using-express/) : *Introdução ao popular framework web para Node.js, Express.js*;
