@@ -2,7 +2,7 @@
 
 ## Tecnologias e conceitos utilizados 🚀
 
-- **JavaScript Refresher**: [Veja todos os arquivos na pasta do projeto](js-quick-refresher/) Uma rápida revisão dos conceitos básicos do JavaScript para atualizar seu conhecimento.
+- **JavaScript Refresher**: [JavaScript Refresher](js-quick-refresher/) Uma rápida revisão dos conceitos básicos do JavaScript para atualizar seu conhecimento.
 - **Node.js Basics**: Conceitos fundamentais do Node.js para o desenvolvimento no lado do servidor.
 - **Efficient Development**: Melhores práticas e dicas para desenvolvimento eficiente com Node.js.
 - **Using Express.js**: Introdução ao popular framework web para Node.js, Express.js.
