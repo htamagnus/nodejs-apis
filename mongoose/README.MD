@@ -4,8 +4,9 @@ Mongoose é um biblioteca de Modelagem de Dados de Objeto (ou ODM, do inglês: O
 O MongoDB é um banco de dados de documentos NoSQL que não possui esquemas. Isso significa que ele guarda documentos JSON e que a estrutura deles pode variar, já que não há a estrutura rígida igual a dos bancos SQL. Uma das vantagens em usar NoSQL é que acelera o desenvolvimento de aplicações e reduz a complexidade das implementações.
 
 ---
-### Tópicos: 
-- [Conexão com o banco](#1º-conexão-com-o-banco)
+## Tópicos: 
+1. [Conexão com o banco](#1º-conexão-com-o-banco)
+2. [Definir um esquema](#2º-definir-um-esquema)
 ---
 
 ## 1º: Conexão com o banco
