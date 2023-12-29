@@ -38,6 +38,7 @@ A quarta parte explora como definir modelos com o Sequelize. Modelos são repres
 ## 5. Configurando Relações e Interagindo com Modelos Relacionados 🔄🗃️:
 
 A última parte do projeto aborda a configuração de relações entre modelos e como interagir com modelos relacionados. O Sequelize facilita a definição de relações como associações de chave estrangeira, simplificando consultas complexas que envolvem modelos relacionados.
+
 ---
 
 Estes são os principais tópicos abordados no projeto "NoSQL and MongoDB", proporcionando uma compreensão básica de como usar Sequelize com bancos de dados NoSQL.
