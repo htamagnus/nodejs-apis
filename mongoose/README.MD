@@ -1,10 +1,20 @@
-Mongoose é um biblioteca de Modelagem de Dados de Objeto (ou ODM, do inglês: Object Data Modeling) para MongoDB e Node.js. Ele gerencia o relacionamento entre dados, fornece a validação de esquemas e é usado como tradutor entre objetos no código e a representação desses objetos no MongoDB.
+# Projeto NodeJS com Mongoose 
+**Mongoose** é um biblioteca de Modelagem de Dados de Objeto (ou ODM, do inglês: Object Data Modeling) para MongoDB e Node.js. Ele gerencia o relacionamento entre dados, fornece a validação de esquemas e é usado como tradutor entre objetos no código e a representação desses objetos no MongoDB.
 
-O MongoDB é um banco de dados de documentos NoSQL que não possui esquemas. Isso significa que ele guarda documentos JSON e que a estrutura deles pode variar, já que não há a estrutura rígida igual a dos bancos SQL. Uma das vantagens em usar NoSQL é que acelera o desenvolvimento de aplicações e reduz a complexidade das implementações.
+O **MongoDB** é um banco de dados de documentos **NoSQL** que não possui esquemas. Isso significa que ele guarda documentos JSON e que a estrutura deles pode variar, já que não há a estrutura rígida igual a dos bancos SQL. Uma das vantagens em usar NoSQL é que acelera o desenvolvimento de aplicações e reduz a complexidade das implementações.
 
 ---
+## Tópicos: 
+1. [Conexão com o banco](#1º-conexão-com-o-banco) 🌐
+2. [Definir um esquema](#2º-definir-um-esquema) 📋
+3. [Exportar um modelo](#3º-exportar-um-modelo) 🚚
+4. [Buscando um produto](#4º-buscando-um-produto) 🔎
+5. [Atualizando um produto](#5º-atualizando-um-produto) ✨
+6. [Deletando um produto](#6º-deletando-um-produto) 🗑️
+7. [Relacionando Schemas](#7º-relacionando-schemas) ↔️
+---
 
-# 1º: Conexão com o banco
+## 1º: Conexão com o banco 🌐
 ~~~javascript
 const mongoose = require("mongoose"); // O primeiro passo é importar o módulo mongoose, ele fornece uma camada de abstração para simplificar a interação com o MongoDB.
 
@@ -22,7 +32,7 @@ mongoose
 
 ---
 
-# 2º: Definir um esquema:
+## 2º: Definir um esquema 📋
 O esquema define as propriedades do documento através de um objeto, onde o nome da chave corresponde ao nome da propriedade na coleção.
 Os seguintes tipos de esquemas são permitidos:
 - Array
@@ -58,7 +68,7 @@ Agora, o productSchema pode ser usado para criar modelos de dados que se encaixa
 
 ---
 
-# 3º: Exportar um modelo: 
+## 3º: Exportar um modelo 🚚
 ~~~javascript
 module.exports = mongoose.model('Product', productSchema);
 ~~~
@@ -67,7 +77,7 @@ Essa linha de código combina o esquema productSchema com o nome 'Product' para 
 
 ---
 
-# 4º: Buscando um produto:
+## 4º: Buscando um produto 🔎
 ~~~javascript
 exports.getProducts = (req, res, next) => {
   Product.find()
@@ -87,7 +97,7 @@ O método find() do Mongoose é uma das operações mais comuns e fundamentais p
 
 ---
 
-# 5º: Atualizando um produto: 
+## 5º: Atualizando um produto ✨
 ~~~javascript
 exports.postEditProduct = (req, res, next) => {
   const prodId = req.body.productId; //  Obtém o ID do produto a ser editado do corpo da solicitação
@@ -115,7 +125,7 @@ Esse controlador é responsável por atualizar as informações de um produto no
 
 ---
 
-# 6º: Deletando um produto: 
+## 6º: Deletando um produto 🗑️
 ~~~javascript
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId; //Obtém o ID do produto que deve ser excluído a partir do corpo da solicitação POST.
@@ -131,7 +141,7 @@ Esta função controladora é usada para excluir um produto do banco de dados co
 
 ---
 
-# 7º Relacionando Schemas: 
+## 7º Relacionando Schemas ↔️
 O atributo ref é usado em esquemas do Mongoose para estabelecer uma referência entre diferentes coleções em um banco de dados MongoDB. Ele é particularmente útil quando você deseja criar relacionamentos ou associações entre documentos em coleções diferentes.
 
 ~~~javascript
