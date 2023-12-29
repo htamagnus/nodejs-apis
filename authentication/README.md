@@ -1,22 +1,70 @@
-## what I've learned:
-1. **authentication:**
-- authentication means that not every visitor of the page can view and interact with everything;
-- authentication has to happen on the server-side and builds up on sessions;
-- you can protect routes by checking the session controlled login status right before you acess a controller action;
----
-2. **security & UX:**
-- passwords should be stored in a hashed form;
-- CSRF attacks are a real issua and you should therefore include CSRF protection in any application you build;
-- for a better user experience, you can flash data/messages into the session which you then can display in your views;
----
-3. **bcryptjs:**
-- to encrypt passwords using the bcryptjs library, which is a JavaScript implementation of the bcrypt password hashing algorithm, follow these steps. Bcrypt is a secure password hashing algorithm designed to protect against brute-force attacks and dictionary attacks.
----
-4. **csurf:**
-- how to make a website secure and immune to CSRF attacks with csurf. csurf is a middleware for Express.js, a popular web application framework for Node.js. Its purpose is to prevent Cross-Site Request Forgery (CSRF) attacks by adding an additional layer of security to your web application.
-![image](https://github.com/htamagnus/nodejs-apis/assets/85269068/132bb9a8-0fd6-4a1a-9973-407674eb91e0)
+## Projeto em NodeJS sobre Segurança e Autenticação 🛡️🔐
+### 1. **Autenticação 🔒**
+- a autenticação é um aspecto crucial de aplicações web para controlar o acesso e as interações.
+- a autenticação restringe o acesso, garantindo que nem todo visitante possa visualizar e interagir com tudo;
+- a implementação ocorre no lado do servidor e depende de sessões;
+- rotas são protegidas verificando o status de login controlado pela sessão antes de acessar uma ação do controlador;
 
 ---
-5. **connect-flash:**
-- how to display error messages with connect-flash. connect-flash is an additional middleware for the Express.js web application framework in Node.js. It is commonly employed to store and retrieve messages meant to be transferred between requests. This proves particularly beneficial in situations like showcasing flash messages following a form submission or successful authentication.
+### 2. **Segurança e Experiência do Usuário 🛡️**
+- assegurar tanto a segurança quanto uma experiência positiva para o usuário é vital para qualquer aplicação;
+- senhas devem ser armazenadas de forma segura em formato hash;
+- o jeito de se proteger contra ataques CSRF é implementando proteção CSRF na aplicação;
+- melhorar a experiência do usuário ao inserir dados/mensagens na sessão para exibir em visualizações;
+
 ---
+### 3. **Bcryptjs 🔐**
+- aprendi a criptografar senhas usando a biblioteca bcryptjs, uma implementação em JavaScript do algoritmo de hash de senha bcrypt. O bcrypt é projetado para proteger contra ataques de força bruta.
+- exemplo básico de como usar o bcryptjs para criar um hash de senha:
+~~~javascript 
+const bcrypt = require('bcryptjs');
+
+const senhaPlana = 'senha123';
+const custoHash = 12;
+
+bcrypt.hash(senhaPlana, custoHash, (err, hash) => {
+  if (err) {
+    console.error('Erro ao criar hash:', err);
+    return;
+  }
+  console.log('Hash da senha:', hash);
+});
+
+~~~
+---
+
+### 4. **Csurf 🛑**
+- Para proteger o seu site e evitar ataques CSRF, uma alternativa é usar o csurf, um middleware para Express.js.
+![image](https://github.com/htamagnus/nodejs-apis/assets/85269068/132bb9a8-0fd6-4a1a-9973-407674eb91e0)
+- exemplo de uso:
+~~~javascript
+const express = require('express');
+const csurf = require('csurf');
+
+const app = express();
+
+// Configuração do csurf
+const csrfProtection = csurf();
+app.use(csrfProtection);
+
+// Rota protegida pelo csurf
+app.post('/rota-protegida', (req, res) => {
+  res.send('Rota protegida pelo csurf!');
+});
+~~~
+
+---
+### 5. **Connect-flash 🚨**
+- o connect-flash é um middleware para o framework Express.js em Node.js. Sua principal finalidade é permitir que mensagens temporárias sejam armazenadas e exibidas em páginas subsequentes.
+- exemplo de uso:
+- ~~~javascript
+  app.post('/exemplo-rota', (req, res) => {
+  // Realiza alguma lógica
+  if (algumaCondição) {
+    req.flash('sucesso', 'Operação bem-sucedida!');
+  } else {
+    req.flash('erro', 'Algo deu errado.');
+  }
+  res.redirect('/pagina-seguinte');
+  });
+~~~
