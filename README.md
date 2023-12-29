@@ -4,7 +4,7 @@
 
 - [JavaScript Refresher](js-quick-refresher/) : *Uma rápida revisão dos conceitos básicos do JavaScript para atualizar seu conhecimento*;
 - [Node.js Basics](understanding-basics-node-js/) : *Conceitos fundamentais do Node.js para o desenvolvimento no lado do servidor*;
-- **Efficient Development**: [Efficient Development](enhancing-the-app/) : *Melhores práticas e dicas para desenvolvimento eficiente com Node.js*;
+- [Efficient Development](enhancing-the-app/) : *Melhores práticas e dicas para desenvolvimento eficiente com Node.js*;
 - **Using Express.js**: Introdução ao popular framework web para Node.js, Express.js.
 - **Templating Engines**: Implementação de motores de templates para renderização de conteúdo dinâmico.
 - **Model-View-Controller (MVC)**: Compreensão e implementação da arquitetura MVC.
