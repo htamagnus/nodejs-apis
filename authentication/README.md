@@ -1,4 +1,4 @@
-#### what I've learned:
+## what I've learned:
 1. **authentication:**
 - authentication means that not every visitor of the page can view and interact with everything;
 - authentication has to happen on the server-side and builds up on sessions;
