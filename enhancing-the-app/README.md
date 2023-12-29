@@ -21,7 +21,7 @@ A primeira etapa do projeto envolve a criação da estrutura inicial da aplicaç
 
 ## 2. Trabalhando na Navegação 🧭:
 
-A segunda parte concentra-se na melhoria da navegação dentro da aplicação. Isso pode envolver a implementação de menus, botões e links para facilitar o fluxo do usuário entre diferentes partes da aplicação.
+A segunda parte concentra-se na melhoria da navegação dentro da aplicação. Envolve a implementação de menus, botões e links para facilitar o fluxo do usuário entre diferentes partes da aplicação.
 
 ---
 
@@ -33,7 +33,7 @@ A terceira etapa aborda o registro das rotas da aplicação. Isso inclui a confi
 
 ## 4. Armazenando Dados do Produto 📦:
 
-A quarta parte trata da implementação do armazenamento de dados do produto. Isso pode envolver a criação de formulários para capturar informações do produto e a lógica necessária para armazenar esses dados.
+A quarta parte trata da implementação do armazenamento de dados do produto. Envolve a criação de formulários para capturar informações do produto e a lógica necessária para armazenar esses dados.
 
 ---
 
@@ -45,12 +45,12 @@ A quinta etapa concentra-se na exibição de dados do produto na interface do us
 
 ## 6. Editando e Excluindo Produtos ✏️🗑️:
 
-A sexta parte explora as funcionalidades de edição e exclusão de produtos. Isso pode envolver a implementação de formulários de edição, botões de exclusão e a lógica correspondente para atualizar ou remover dados do produto.
+A sexta parte explora as funcionalidades de edição e exclusão de produtos. Isso envolve a implementação de formulários de edição, botões de exclusão e a lógica correspondente para atualizar ou remover dados do produto.
 
 ---
 
 ## 7. Adicionando Itens ➕:
 
-A última etapa do projeto aborda a adição de itens à aplicação. Isso pode incluir a implementação de funcionalidades para adicionar novos produtos ou itens ao sistema.
+A última etapa do projeto aborda a adição de itens à aplicação. Inclui a implementação de funcionalidades para adicionar novos produtos ou itens ao sistema.
 
 ---
