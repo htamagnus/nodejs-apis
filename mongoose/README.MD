@@ -5,13 +5,13 @@ O MongoDB é um banco de dados de documentos NoSQL que não possui esquemas. Iss
 
 ---
 ## Tópicos: 
-1. [Conexão com o banco](#1º-conexão-com-o-banco)
-2. [Definir um esquema](#2º-definir-um-esquema)
-3. [Exportar um modelo](#3º-exportar-um-modelo)
-4. [Buscando um produto](#4º-buscando-um-produto)
-5. [Atualizando um produto](#5º-atualizando-um-produto)
-6. [Deletando um produto](#6º-deletando-um-produto)
-7. [Relacionando Schemas](#7º-relacionando-schemas)
+1. [Conexão com o banco](#1º-conexão-com-o-banco) 🌐
+2. [Definir um esquema](#2º-definir-um-esquema) 📋
+3. [Exportar um modelo](#3º-exportar-um-modelo) 🚚
+4. [Buscando um produto](#4º-buscando-um-produto) 🔎
+5. [Atualizando um produto](#5º-atualizando-um-produto) ✨
+6. [Deletando um produto](#6º-deletando-um-produto) 🗑️
+7. [Relacionando Schemas](#7º-relacionando-schemas) ↔️
 ---
 
 ## 1º: Conexão com o banco 🌐
