@@ -45,7 +45,7 @@ A terceira etapa explora a adição de um modelo à aplicação. O modelo é res
 
 - Conecta Modelo e Visão;
 - Deve garantir apenas que os dois possam se comunicar (em ambas as direções);
-
+---
 Estes são os principais tópicos abordados no projeto "MVC Overview", fornecendo uma compreensão básica do padrão MVC e suas componentes.
 
 ![image](https://github.com/htamagnus/Node-JS/assets/85269068/6d93cd4b-4c10-40ed-aa64-7c58ffa556eb)
