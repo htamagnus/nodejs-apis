@@ -11,7 +11,8 @@ O projeto "MVC Overview" visa fornecer uma visão geral do padrão de arquitetur
 
 ## 1. O que é o MVC 🔄?
 
-A primeira parte do projeto explora o padrão de arquitetura Modelo-Visão-Controlador (MVC). Este padrão organiza a aplicação em três componentes principais: ------ - Modelo, que lida com a representação e gerenciamento de dados; 
+A primeira parte do projeto explora o padrão de arquitetura Modelo-Visão-Controlador (MVC). Este padrão organiza a aplicação em três componentes principais: 
+- Modelo, que lida com a representação e gerenciamento de dados; 
 - Visão, que lida com a interface do usuário;
 - Controlador, que conecta o Modelo e a Visão;
 
