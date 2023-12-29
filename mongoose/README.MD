@@ -8,7 +8,7 @@ O MongoDB é um banco de dados de documentos NoSQL que não possui esquemas. Iss
 - [Conexão com o banco](#1º-conexão-com-o-banco)
 ---
 
-# 1º: Conexão com o banco
+## 1º: Conexão com o banco
 ~~~javascript
 const mongoose = require("mongoose"); // O primeiro passo é importar o módulo mongoose, ele fornece uma camada de abstração para simplificar a interação com o MongoDB.
 
@@ -26,7 +26,7 @@ mongoose
 
 ---
 
-# 2º: Definir um esquema:
+## 2º: Definir um esquema:
 O esquema define as propriedades do documento através de um objeto, onde o nome da chave corresponde ao nome da propriedade na coleção.
 Os seguintes tipos de esquemas são permitidos:
 - Array
@@ -62,7 +62,7 @@ Agora, o productSchema pode ser usado para criar modelos de dados que se encaixa
 
 ---
 
-# 3º: Exportar um modelo: 
+## 3º: Exportar um modelo: 
 ~~~javascript
 module.exports = mongoose.model('Product', productSchema);
 ~~~
@@ -71,7 +71,7 @@ Essa linha de código combina o esquema productSchema com o nome 'Product' para 
 
 ---
 
-# 4º: Buscando um produto:
+## 4º: Buscando um produto:
 ~~~javascript
 exports.getProducts = (req, res, next) => {
   Product.find()
@@ -91,7 +91,7 @@ O método find() do Mongoose é uma das operações mais comuns e fundamentais p
 
 ---
 
-# 5º: Atualizando um produto: 
+## 5º: Atualizando um produto: 
 ~~~javascript
 exports.postEditProduct = (req, res, next) => {
   const prodId = req.body.productId; //  Obtém o ID do produto a ser editado do corpo da solicitação
@@ -119,7 +119,7 @@ Esse controlador é responsável por atualizar as informações de um produto no
 
 ---
 
-# 6º: Deletando um produto: 
+## 6º: Deletando um produto: 
 ~~~javascript
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId; //Obtém o ID do produto que deve ser excluído a partir do corpo da solicitação POST.
@@ -135,7 +135,7 @@ Esta função controladora é usada para excluir um produto do banco de dados co
 
 ---
 
-# 7º Relacionando Schemas: 
+## 7º Relacionando Schemas: 
 O atributo ref é usado em esquemas do Mongoose para estabelecer uma referência entre diferentes coleções em um banco de dados MongoDB. Ele é particularmente útil quando você deseja criar relacionamentos ou associações entre documentos em coleções diferentes.
 
 ~~~javascript
