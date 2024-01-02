@@ -7,21 +7,21 @@ O projeto de Autenticação Avançada em Node.js tem como foco a implementação
 ## Crypto 🔐
 - O módulo crypto no Node.js é uma biblioteca integrada que fornece funcionalidades criptográficas essenciais para o projeto;
 - Nesse projeto, o crypto foi implementado da seguinte forma:
-1. Importação do módulo crypto:
+1. **Importação do módulo crypto:**
 ~~~javascript 
 const crypto = require('crypto');
 ~~~
 
 ---
 
-2. Função postReset:
+2. **Função postReset:**
 ~~~javascript 
 exports.postReset = (req, res, next) => {}
 ~~~
 
 ---
 
-3. Geração de Token Aleatório:
+3. **Geração de Token Aleatório:**
 ~~~javascript 
 crypto.randomBytes(32, (err, buffer) => {...}:
 // Gera 32 bytes aleatórios de forma assíncrona. O callback recebe um possível erro (err) e o buffer gerado.
@@ -29,13 +29,13 @@ crypto.randomBytes(32, (err, buffer) => {...}:
 
 ---
 
-4. Conversão do Buffer para String Hexadecimal:
+4. **Conversão do Buffer para String Hexadecimal:**
 - O buffer gerado é convertido para uma string hexadecimal, que será usada como token de redefinição de senha.
 ~~~javascript 
 const token = buffer.toString('hex');
 ~~~
 
-5. Procura do Usuário pelo E-mail:
+5. **Procura do Usuário pelo E-mail:**
 ~~~javascript
 User.findOne({ email: req.body.email })
   .then(user => {}
@@ -44,7 +44,7 @@ User.findOne({ email: req.body.email })
 
 ---
 
-6. Manipulação do Usuário Encontrado:
+6. **Manipulação do Usuário Encontrado:**
 - Se não houver usuário encontrado, uma mensagem de erro é flashada e a resposta da requisição é redirecionada para a página de redefinição de senha.
 ~~~javascript
 if (!user) {
@@ -55,7 +55,7 @@ if (!user) {
 
 ---
 
-7. Atribuição do Token ao Usuário e Definição do Tempo de Expiração:
+7. **Atribuição do Token ao Usuário e Definição do Tempo de Expiração:**
 - Se o usuário for encontrado, o token gerado é atribuído às propriedades resetToken e resetTokenExpiration do usuário, respectivamente.
 ~~~javascript 
 user.resetToken = token;
@@ -65,7 +65,7 @@ return user.save();
 
 ---
 
-8. Envio de E-mail de Recuperação:
+8. **Envio de E-mail de Recuperação:**
 - Após salvar as alterações no usuário, a resposta da requisição é redirecionada para a página principal, e é enviado um e-mail ao usuário com um link contendo o token para a redefinição de senha;
 ~~~javascript
 res.redirect('/');
