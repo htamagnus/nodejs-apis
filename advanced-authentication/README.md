@@ -35,6 +35,8 @@ crypto.randomBytes(32, (err, buffer) => {...}:
 const token = buffer.toString('hex');
 ~~~
 
+---
+
 5. **Procura do Usuário pelo E-mail:**
 ~~~javascript
 User.findOne({ email: req.body.email })
