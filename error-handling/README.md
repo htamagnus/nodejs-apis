@@ -109,12 +109,16 @@ exports.get500 = (req, res, next) => {
 ---
 
 ### 3. Express.js Error Handling Middleware 🚨👩‍💻
-- Esse middleware é responsável por capturar erros que ocorrem durante o processamento das requisições e fornecer uma maneira estruturada de lidar com essas situações, evitando que a aplicação quebre inesperadamente;
+- Este middleware é uma maneira eficaz de lidar com erros internos do servidor, proporcionando uma experiência de usuário melhorada ao apresentar uma página de erro personalizada. 
 ~~~javascript
 app.use((error, req, res, next) => {
-  // res.status(error.httpStatusCode).render(...)
-    res.redirect('/500');
-})
+  res.status(500).render('500', {
+    pageTitle: 'Error!',
+    path: '/500',
+    isAuthenticated: req.session.isLoggedIn
+  });
+});
 ~~~
 - O middleware recebe quatro parâmetros: error, req (objeto de requisição), res (objeto de resposta), e next (função para chamar o próximo middleware).
-- Em vez de renderizar uma página de erro diretamente com res.render, está redirecionando o usuário para a rota /500.
+
+---
