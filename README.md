@@ -15,7 +15,7 @@
 - [Authentication](authentication/): *Implementação de autenticação de usuários em aplicativos Node.js*;
 - [Sending E-mails](sending-emails/) : *Integração de funcionalidade de e-mail em seu aplicativo Node.js*;
 - [Authentication Deep Dive](advanced-authentication/) : *Uma exploração mais profunda de várias estratégias de autenticação*;
-- **User Input Validation**: *Validação e tratamento seguro de entrada de usuários*;
+- [User Input Validation](input-validation/) :*Validação e tratamento seguro de entrada de usuários*;
 - **Error Handling**: *Estratégias para tratamento eficaz de erros em aplicativos Node.js*;
 - **File Uploads & Downloads**: *Tratamento de upload e download de arquivos*;
 - **Pagination**: *Implementação de paginação para grandes conjuntos de dados*;
