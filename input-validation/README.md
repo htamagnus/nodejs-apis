@@ -1,102 +1,126 @@
-## Projeto de Autenticação Avançada em Node.js 🚀
+## Projeto Node.js de Validação Segura de Entrada de Usuários 🚀
 
-O projeto de Autenticação Avançada em Node.js tem como foco a implementação de funcionalidades avançadas para garantir a segurança e a gestão eficiente de usuários. Abaixo estão os principais tópicos abordados durante o desenvolvimento:
+Esse projeto tem como objetivo principal garantir a integridade e segurança dos dados provenientes dos usuários. Abaixo estão os principais tópicos abordados durante o desenvolvimento:
 
 ---
 
-## Crypto 🔐
-- O módulo crypto no Node.js é uma biblioteca integrada que fornece funcionalidades criptográficas essenciais para o projeto;
-- Nesse projeto, o crypto foi implementado da seguinte forma:
-1. Importação do módulo crypto:
+1. **Validação de Dados com Express Validator 🛡️**
+- Utiliza o check do express-validator/check para validar o campo de email. Se houver erros de validação, eles são capturados pelo validationResult;
 ~~~javascript 
-const crypto = require('crypto');
+const { check } = require('express-validator/check');
+router.post('/signup', check('email').isEmail(), authController.postSignup);
 ~~~
 
 ---
 
-2. Função postReset:
+2. **Verificação de Erros de Validação ❌**
+- O código verifica se há erros de validação utilizando validationResult. Se houver, retorna uma resposta com o status 422 (Unprocessable Entity) e renderiza a página de signup com mensagens de erro;
 ~~~javascript 
-exports.postReset = (req, res, next) => {}
-~~~
-
----
-
-3. Geração de Token Aleatório:
-~~~javascript 
-crypto.randomBytes(32, (err, buffer) => {...}:
-// Gera 32 bytes aleatórios de forma assíncrona. O callback recebe um possível erro (err) e o buffer gerado.
-~~~
-
----
-
-4. Conversão do Buffer para String Hexadecimal:
-- O buffer gerado é convertido para uma string hexadecimal, que será usada como token de redefinição de senha.
-~~~javascript 
-const token = buffer.toString('hex');
-~~~
-
-5. Procura do Usuário pelo E-mail:
-~~~javascript
-User.findOne({ email: req.body.email })
-  .then(user => {}
-// Procura um usuário no banco de dados com o e-mail fornecido no corpo da requisição.
-~~~
-
----
-
-6. Manipulação do Usuário Encontrado:
-- Se não houver usuário encontrado, uma mensagem de erro é flashada e a resposta da requisição é redirecionada para a página de redefinição de senha.
-~~~javascript
-if (!user) {
-  req.flash('error', 'No account with that email found.');
-  return res.redirect('/reset');
+const errors = validationResult(req);
+if (!errors.isEmpty()) {
+  return res.status(422).render('auth/signup', {
+    path: '/signup',
+    pageTitle: 'Signup',
+    errorMessage: errors.array()
+  });
 }
 ~~~
 
 ---
 
-7. Atribuição do Token ao Usuário e Definição do Tempo de Expiração:
-- Se o usuário for encontrado, o token gerado é atribuído às propriedades resetToken e resetTokenExpiration do usuário, respectivamente.
+3. **Express Validator Middleware 🚀**
+- `check("email")`: Define a validação para o campo de email.
+- `.isEmail()`: Verifica se o valor do campo é um email válido.
+- `.withMessage("Please enter a valid email")`: Define uma mensagem personalizada caso a validação .isEmail() falhe.
+- `.custom((value, { req }) => {...})`: Permite a definição de validações personalizadas. Neste caso, verifica se o valor do email é "test@test.com" e lança um erro se for.
 ~~~javascript 
-user.resetToken = token;
-user.resetTokenExpiration = Date.now() + 3600000; // Expira em 1 hora
-return user.save();
+check("email")
+  .isEmail()
+  .withMessage("Please enter a valid email")
+  .custom((value, { req }) => {
+    if (value === "test@test.com") {
+      throw new Error("This email address is forbidden.");
+    }
+    return true;
+  }),
 ~~~
 
 ---
 
-8. Envio de E-mail de Recuperação:
-- Após salvar as alterações no usuário, a resposta da requisição é redirecionada para a página principal, e é enviado um e-mail ao usuário com um link contendo o token para a redefinição de senha;
-~~~javascript
-res.redirect('/');
-transporter.sendMail({
-  to: req.body.email,
-  from: 'shop@node-complete.com',
-  subject: 'Password reset',
-  html: `
-    <p>You requested a password reset</p>
-    <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
-  `
-});
+4. **Validação Customizada 🔍**
+A função .custom() é utilizada para realizar validações personalizadas. No exemplo, ela verifica se o email é "test@test.com" e lança um erro caso seja. Essa validação personalizada é uma maneira de aplicar regras específicas de negócios ou restrições personalizadas aos dados do usuário;
+~~~javascript 
+.custom((value, { req }) => {
+  if (value === "test@test.com") {
+    throw new Error("This email address is forbidden.");
+  }
+  return true;
+}),
 ~~~
 
 ---
 
-*Essa implementação é uma abordagem comum para a funcionalidade de redefinição de senha, envolvendo a geração de tokens criptograficamente seguros, a associação desses tokens ao usuário e a notificação do usuário por e-mail para a redefinição de senha.*
+5. **Validação para senhas 🔐**
+- `.isLength({ min: 5 })`: Verifica se o valor do campo tem pelo menos 5 caracteres.
+- `.isAlphanumeric()`: Verifica se o valor do campo contém apenas caracteres alfanuméricos.
+~~~javascript 
+    body(
+      "password",
+      "Please enter a password with only numbers and text and at least 5 characters."
+    )
+      .isLength({ min: 5 })
+      .isAlphanumeric()
+~~~
 
 ---
 
-## O que eu Aprendi 📚
-
-#### Redefinição de Senha 🔄
-- A redefinição de senha foi implementada de forma a evitar que os usuários redefinam contas de usuário aleatórias;
-- Os tokens de redefinição são gerados utilizando a biblioteca crypto, garantindo que sejam aleatórios, inadivinháveis e únicos; 
+6. **Verificação de igualdade de campo ⚖️**
+- Adiciona uma validação para garantir que o campo "confirmPassword" seja igual ao campo "password".
+- Essa abordagem ajuda a evitar erros de digitação e contribui para a segurança e integridade dos dados do usuário;
+~~~javascript 
+body("confirmPassword").custom((value, { req }) => {
+  if (value !== req.body.password) {
+    throw new Error("Password have to match!");
+  }
+  return true;
+})
+~~~
 
 ---
 
-#### Autorização 🔒
-- A autorização foi tratada como uma parte vital em praticamente todos os aplicativos;
-- Não é concedida a capacidade de realizar todas as ações a todos os usuários autenticados;
-- A abordagem adotada visa restringir o acesso através da limitação das permissões dos usuários, proporcionando maior controle sobre as operações permitidas;
+7. **Limpeza de dados 🧹**
+- Sanitização do Campo 'email' na Rota de Login: `.normalizeEmail()`: Normaliza o valor do campo 'email', removendo espaços e caracteres especiais. Isso é útil para garantir que o email esteja em um formato consistente;
+- Sanitização do Campo 'password' na Rota de Login: `.trim()`: Remove espaços no início e no final do valor do campo 'password'. Isso é útil para garantir que espaços extras não causem problemas durante o processo de autenticação;
+- Sanitização do Campo 'password' e 'confirmPassword' nas Validacões de Senha: Ambos os campos 'password' e 'confirmPassword' são submetidos à sanitização `.trim()`, removendo espaços no início e no final;
+- Validação Personalizada para 'confirmPassword': A validação personalizada para 'confirmPassword' continua a verificar se a confirmação da senha corresponde à senha original após a sanitização;
+~~~javascript 
+router.post(
+  '/login',
+  [
+    body('email')
+      .isEmail()
+      .withMessage('Please enter a valid email address.')
+      .normalizeEmail(), // Sanitização: Normaliza o email (remove espaços e caracteres especiais)
+    body('password', 'Password has to be valid.')
+      .isLength({ min: 5 })
+      .isAlphanumeric()
+      .trim() // Sanitização: Remove espaços no início e no final do valor do campo
+  ],
+  authController.postLogin
+);
+
+body('password', 'Please enter a password with only numbers and text and at least 5 characters.')
+  .isLength({ min: 5 })
+  .isAlphanumeric()
+  .trim(), // Sanitização: Remove espaços no início e no final do valor do campo
+body('confirmPassword')
+  .trim() // Sanitização: Remove espaços no início e no final do valor do campo
+  .custom((value, { req }) => {
+    if (value !== req.body.password) {
+      throw new Error('Passwords have to match!');
+    }
+    return true;
+  })
+~~~
 
 ---
