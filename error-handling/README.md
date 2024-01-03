@@ -63,6 +63,7 @@ Esses são erros relacionados a falhas no código-fonte, onde ocorre um comporta
 ---
 
 ## Lançando erros no código 🚨
+#### 1. Tratamento com Throw new Error 🚧
 - **Tratamento de Usuário Não Encontrado:** é adicionada uma verificação para o caso em que o usuário não é encontrado no banco de dados. Se user for falsy (no caso de não existir), uma mensagem informativa é exibida no console e o middleware avança para o próximo middleware usando `next()`.
 
 - **Tratamento de Erros Gerais:** No bloco catch, ao invés de apenas imprimir o erro no console `(console.log(err))`, agora é lançada uma exceção `(throw new Error(err))`. Isso transforma o erro em uma exceção, o que pode ser útil para rastreamento e identificação mais eficientes de erros não tratados.
@@ -82,5 +83,27 @@ User.findById(req.session.user._id)
     throw new Error(err);
   });
 ~~~
+
+---
+
+#### 2. Retornando páginas de erros 🚩📄
+- Este trecho de código exporta uma função que renderiza a página de erro 500;
+~~~javascript
+exports.get500 = (req, res, next) => {
+  res.status(500).render('500', {
+    pageTitle: 'Error!',
+    path: '/500',
+    isAuthenticated: req.session.isLoggedIn
+  });
+};
+~~~
+- Dentro de um bloco catch, quando ocorre um erro, o código redireciona o usuário para a rota `'/500'`
+~~~javascript
+.catch(err => {
+  res.redirect('/500');
+});
+~~~
+
+*Essencialmente, quando ocorre um erro durante a execução do código, ele redireciona o usuário para a página de erro 500, proporcionando uma experiência mais amigável em caso de falhas no servidor.*
 
 ---
