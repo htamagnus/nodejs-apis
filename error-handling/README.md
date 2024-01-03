@@ -59,3 +59,28 @@ Esses são erros relacionados a falhas no código-fonte, onde ocorre um comporta
 ---
 
 *Trabalhar com erros envolve uma abordagem equilibrada entre capturar erros de forma adequada para manter a estabilidade do aplicativo e fornecer respostas informativas aos usuários quando algo não ocorre conforme o esperado. A escolha entre diferentes métodos de tratamento de erros dependerá das necessidades específicas de cada situação e da arquitetura da aplicação.*
+
+---
+
+## Lançando erros no código 🚨
+- **Tratamento de Usuário Não Encontrado:** é adicionada uma verificação para o caso em que o usuário não é encontrado no banco de dados. Se user for falsy (no caso de não existir), uma mensagem informativa é exibida no console e o middleware avança para o próximo middleware usando `next()`.
+
+- **Tratamento de Erros Gerais:** No bloco catch, ao invés de apenas imprimir o erro no console `(console.log(err))`, agora é lançada uma exceção `(throw new Error(err))`. Isso transforma o erro em uma exceção, o que pode ser útil para rastreamento e identificação mais eficientes de erros não tratados.
+
+- **Chamada do Próximo Middleware:** Independentemente de o usuário existir ou não, o código utiliza `next()` para passar para o próximo middleware. Isso garante que o fluxo de execução continue mesmo em casos de erros ou quando o usuário não é encontrado.
+~~~javascript
+User.findById(req.session.user._id)
+  .then(user => {
+    if (!user) {
+      console.log("user doesn't exist");
+      return next();
+    }
+    req.user = user;
+    next();
+  })
+  .catch(err => {
+    throw new Error(err);
+  });
+~~~
+
+---
