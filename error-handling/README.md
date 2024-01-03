@@ -63,7 +63,7 @@ Esses são erros relacionados a falhas no código-fonte, onde ocorre um comporta
 ---
 
 ## Lançando erros no código 🚨
-#### 1. Tratamento com Throw new Error 🚧
+### 1. Tratamento com Throw new Error 🚧
 - **Tratamento de Usuário Não Encontrado:** é adicionada uma verificação para o caso em que o usuário não é encontrado no banco de dados. Se user for falsy (no caso de não existir), uma mensagem informativa é exibida no console e o middleware avança para o próximo middleware usando `next()`.
 
 - **Tratamento de Erros Gerais:** No bloco catch, ao invés de apenas imprimir o erro no console `(console.log(err))`, agora é lançada uma exceção `(throw new Error(err))`. Isso transforma o erro em uma exceção, o que pode ser útil para rastreamento e identificação mais eficientes de erros não tratados.
@@ -86,7 +86,7 @@ User.findById(req.session.user._id)
 
 ---
 
-#### 2. Retornando páginas de erros 🚩📄
+### 2. Retornando páginas de erros 🚩📄
 - Este trecho de código exporta uma função que renderiza a página de erro 500;
 ~~~javascript
 exports.get500 = (req, res, next) => {
@@ -107,3 +107,14 @@ exports.get500 = (req, res, next) => {
 *Essencialmente, quando ocorre um erro durante a execução do código, ele redireciona o usuário para a página de erro 500, proporcionando uma experiência mais amigável em caso de falhas no servidor.*
 
 ---
+
+### 3. Express.js Error Handling Middleware 🚨👩‍💻
+- Esse middleware é responsável por capturar erros que ocorrem durante o processamento das requisições e fornecer uma maneira estruturada de lidar com essas situações, evitando que a aplicação quebre inesperadamente;
+~~~javascript
+app.use((error, req, res, next) => {
+  // res.status(error.httpStatusCode).render(...)
+    res.redirect('/500');
+})
+~~~
+- O middleware recebe quatro parâmetros: error, req (objeto de requisição), res (objeto de resposta), e next (função para chamar o próximo middleware).
+- Em vez de renderizar uma página de erro diretamente com res.render, está redirecionando o usuário para a rota /500.
