@@ -58,4 +58,4 @@ Esses são erros relacionados a falhas no código-fonte, onde ocorre um comporta
 
 ---
 
-**Trabalhar com erros envolve uma abordagem equilibrada entre capturar erros de forma adequada para manter a estabilidade do aplicativo e fornecer respostas informativas aos usuários quando algo não ocorre conforme o esperado. A escolha entre diferentes métodos de tratamento de erros dependerá das necessidades específicas de cada situação e da arquitetura da aplicação.**
+*Trabalhar com erros envolve uma abordagem equilibrada entre capturar erros de forma adequada para manter a estabilidade do aplicativo e fornecer respostas informativas aos usuários quando algo não ocorre conforme o esperado. A escolha entre diferentes métodos de tratamento de erros dependerá das necessidades específicas de cada situação e da arquitetura da aplicação.*
