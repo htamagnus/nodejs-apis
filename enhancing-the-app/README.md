@@ -27,13 +27,33 @@ A segunda parte concentra-se na melhoria da navegação dentro da aplicação. E
 
 ## 3. Registrando as Rotas 🛣️:
 
-A terceira etapa aborda o registro das rotas da aplicação. Isso inclui a configuração e mapeamento de rotas para diferentes páginas ou recursos da aplicação.
+A terceira etapa aborda o registro das rotas da aplicação. Isso inclui a configuração e mapeamento de rotas para diferentes páginas ou recursos da aplicação. Exemplo de rota criada:
+~~~javascript
+exports.getAddProduct = (req, res, next) => {
+  res.render('admin/add-product', {
+    pageTitle: 'Add Product',
+    path: '/admin/add-product',
+    formsCSS: true,
+    productCSS: true,
+    activeAddProduct: true
+  });
+};
+~~~
 
 ---
 
 ## 4. Armazenando Dados do Produto 📦:
 
-A quarta parte trata da implementação do armazenamento de dados do produto. Envolve a criação de formulários para capturar informações do produto e a lógica necessária para armazenar esses dados.
+A quarta parte trata da implementação do armazenamento de dados do produto. Envolve a criação de formulários para capturar informações do produto e a lógica necessária para armazenar esses dados. Exemplo:
+~~~javascript
+module.exports = class Product {
+  constructor(title, imageUrl, description, price) {
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.description = description;
+    this.price = price;
+  }
+~~~
 
 ---
 
@@ -51,6 +71,14 @@ A sexta parte explora as funcionalidades de edição e exclusão de produtos. Is
 
 ## 7. Adicionando Itens ➕:
 
-A última etapa do projeto aborda a adição de itens à aplicação. Inclui a implementação de funcionalidades para adicionar novos produtos ou itens ao sistema.
+A última etapa do projeto aborda a adição de itens à aplicação. Inclui a implementação de funcionalidades para adicionar novos produtos ou itens ao sistema. Exemplo:
+~~~javascript
+exports.getOrders = (req, res, next) => {
+  res.render('shop/orders', {
+    path: '/orders',
+    pageTitle: 'Your Orders'
+  });
+};
+~~~
 
 ---
