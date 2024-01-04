@@ -20,13 +20,33 @@ A primeira parte do projeto explora o padrão de arquitetura Modelo-Visão-Contr
 
 ## 2. Adicionando Controladores 🎮
 
-A segunda parte aborda a adição de controladores ao projeto. Os controladores desempenham um papel crucial na lógica da aplicação, conectando as ações do usuário (entrada) com a manipulação de dados (modelo) e a atualização da interface do usuário (visão).
+A segunda parte aborda a adição de controladores ao projeto. Os controladores desempenham um papel crucial na lógica da aplicação, conectando as ações do usuário (entrada) com a manipulação de dados (modelo) e a atualização da interface do usuário (visão). Exemplo de um controlador de erro:
+~~~javascript
+exports.get404 = (req, res, next) => {
+  res.status(404).render("404", { pageTitle: "Page Not Found" });
+};
+~~~
 
 ---
 
 ## 3. Adicionando um Modelo 🗃️
 
-A terceira etapa explora a adição de um modelo à aplicação. O modelo é responsável por representar e gerenciar os dados da aplicação, incluindo lógica relacionada a operações de dados como salvar e buscar.
+A terceira etapa explora a adição de um modelo à aplicação. O modelo é responsável por representar e gerenciar os dados da aplicação, incluindo lógica relacionada a operações de dados como salvar e buscar. Exemplo de um modelo:
+~~~javascript
+const products = [];
+
+module.exports = class Product {
+    constructor(t) {
+        this.title = t;
+    }
+    save() {
+        products.push(this);
+    }
+    static fetchAll() {
+        return products;
+    }
+};
+~~~
 
 ---
 
