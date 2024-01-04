@@ -2,14 +2,14 @@
 
 ## Tecnologias e conceitos utilizados 🚀
 
-- [JavaScript Refresher](js-quick-refresher/) : *Uma rápida revisão dos conceitos básicos do JavaScript para atualizar o conhecimento*;
-- [Node.js Basics](understanding-basics-node-js/) : *Conceitos fundamentais do Node.js para o desenvolvimento no lado do servidor*;
-- [Efficient Development](enhancing-the-app/) : *Melhores práticas e dicas para desenvolvimento eficiente com Node.js*;
-- [Using Express.js](using-express/) : *Introdução ao popular framework web para Node.js, Express.js*;
-- [Templating Engines](templating-engines/) : *Implementação de motores de templates para renderização de conteúdo dinâmico*;
-- [Model-View-Controller (MVC)](model-view-controller-mvc/) : *Compreensão e implementação da arquitetura MVC*;
-- [Advanced Routes & Models, Node + MySQL](advanced-routes-and-models-node/) : *Roteamento avançado e trabalho com bancos de dados SQL usando MySQL*;
-- [Using Sequelize, Node + NoSQL (MongoDB)](sequelize-node/) : *Sequelize ORM para bancos de dados SQL e MongoDB para NoSQL*;
+- [JavaScript Refresher](1-js-quick-refresher/) : *Uma rápida revisão dos conceitos básicos do JavaScript para atualizar o conhecimento*;
+- [Node.js Basics](2-understanding-basics-node-js/) : *Conceitos fundamentais do Node.js para o desenvolvimento no lado do servidor*;
+- [Efficient Development](3-enhancing-the-app/) : *Melhores práticas e dicas para desenvolvimento eficiente com Node.js*;
+- [Using Express.js](4-using-express/) : *Introdução ao popular framework web para Node.js, Express.js*;
+- [Templating Engines](5-templating-engines/) : *Implementação de motores de templates para renderização de conteúdo dinâmico*;
+- [Model-View-Controller (MVC)](6-model-view-controller-mvc/) : *Compreensão e implementação da arquitetura MVC*;
+- [Advanced Routes & Models, Node + MySQL](7-advanced-routes-and-models-node/) : *Roteamento avançado e trabalho com bancos de dados SQL usando MySQL*;
+- [Using Sequelize, Node + NoSQL (MongoDB)](8-sequelize-node/) : *Sequelize ORM para bancos de dados SQL e MongoDB para NoSQL*;
 - [Using Mongoose](mongoose/) : *Interação com o MongoDB usando Mongoose ODM*;
 - [Sessions & Cookies](sessions-and-cookies/): *Gerenciamento de sessões e cookies para autenticação de usuários*;
 - [Authentication](authentication/): *Implementação de autenticação de usuários em aplicativos Node.js*;
