@@ -50,7 +50,7 @@ Product.find().countDocuments().then(numProducts => {
 
 ## Lógica de paginação com EJS 🖼️🔄
 Essa implementação cria uma barra de navegação de página dinâmica, permitindo que os usuários naveguem entre as páginas de um conjunto paginado de itens. 
-~~javascript
+```ejs
 <section class="pagination">
     <% if (currentPage !== 1 && previousPage !== 1) { %>
         <a href="?page=1">1</a>
@@ -66,7 +66,8 @@ Essa implementação cria uma barra de navegação de página dinâmica, permiti
         <a href="?page=<%= lastPage %>"><%= lastPage %></a>
     <% } %>
 </section>
-~~~
+```
+
 - `<% if (currentPage !== 1 && previousPage !== 1) { %>` : Verifica se a página atual não é a primeira e se a página anterior não é a primeira;
 - `<% if (lastPage !== currentPage && nextPage !== lastPage) { %>` : Verifica se a última página não é igual à página atual e se a próxima página não é a última página;
 
