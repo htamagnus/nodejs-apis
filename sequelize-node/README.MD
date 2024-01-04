@@ -152,4 +152,4 @@ sequelize.sync()
 
 ---
 
-**Estes são os principais tópicos abordados no projeto "Sequelize Node", proporcionando uma visão prática de como utilizar o Sequelize para interação eficiente com bancos de dados relacionais no ambiente Node.js.**
+*Estes são os principais tópicos abordados no projeto "Sequelize Node", proporcionando uma visão prática de como utilizar o Sequelize para interação eficiente com bancos de dados relacionais no ambiente Node.js.*
