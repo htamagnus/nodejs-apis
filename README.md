@@ -19,7 +19,7 @@
 - [Error Handling](error-handling/) : *Estratégias para tratamento eficaz de erros em aplicativos Node.js*;
 - [File Uploads & Downloads](uploads-and-downloads/) : *Tratamento de upload e download de arquivos*;
 - [Pagination](pagination/) : *Implementação de paginação para grandes conjuntos de dados*;
-- **Async Requests**: *Tratamento de requisições assíncronas em aplicativos Node.js*;
+- [Async Requests](async-requests/) *Tratamento de requisições assíncronas em aplicativos Node.js*;
 - **Handling Payments**: *Integração de funcionalidade de pagamento usando várias gateways de pagamento*;
 - **REST API Basics**: *Construção e consumo de APIs RESTful*;
 - **Advanced REST API Features**: *Recursos avançados e melhores práticas para APIs RESTful*;
