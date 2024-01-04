@@ -52,3 +52,21 @@ app.use(multer({ storage: fileStorage }).single('image'));
 Já no HTML, para permitir o upload de arquivos, é utilizado o `enctype="multipart/form-data"`
 
 ---
+
+### Filtrando arquivos por mimetype 📎
+Apenas arquivos PNG, JPG e JPEG são permitidos. Se um arquivo com um tipo MIME diferente for enviado, o Multer rejeitará automaticamente o upload;
+~~~javascript
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype == 'image/png' || file.mimetype == 'image/jpg' || file.mimetype == 'image/jpeg') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+}
+
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('image'));
+~~~
+- A função verifica se o tipo MIME do arquivo está entre os tipos de imagem permitidos (image/png, image/jpg, image/jpeg);
+- Se o tipo MIME for permitido, o callback é chamado com cb(null, true) (indicando que o arquivo é aceito);
+- Se o tipo MIME não estiver na lista permitida, o callback é chamado com cb(null, false) (indicando que o arquivo é rejeitado);
+- `fileFilter: fileFilter`: Adiciona a função de filtro ao middleware Multer. Isso garante que apenas os arquivos que passam pelo filtro serão aceitos.
