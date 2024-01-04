@@ -11,6 +11,35 @@ O projeto "Sending Emails" tem como foco a integração do Node.js com o envio d
 ## 1. Configurando o Nodemailer 📤:
 
 A primeira parte do projeto abrange a configuração do Nodemailer, uma biblioteca que facilita o envio de e-mails usando Node.js. São discutidos os passos necessários para configurar o Nodemailer, incluindo a instalação da biblioteca e a definição das opções de transporte.
+~~~javascript
+const nodemailer = require('nodemailer');
+
+// Configuração do transporte
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'exemplo@gmail.com',
+    pass: 'senha',
+  },
+});
+
+// Configurações do e-mail
+const mailOptions = {
+  from: 'exemplo@gmail.com',
+  to: 'destinatario@example.com',
+  subject: 'Assunto do E-mail',
+  text: 'Conteúdo do E-mail.',
+};
+
+// Enviar e-mail
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    console.error('Erro ao enviar e-mail:', error);
+  } else {
+    console.log('E-mail enviado com sucesso:', info.response);
+  }
+});
+~~~
 
 ---
 
