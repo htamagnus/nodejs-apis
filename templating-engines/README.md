@@ -33,18 +33,98 @@ Engines de template desempenham um papel crucial na geração de HTML dinâmico 
 ## 4. EJS - Embedded JavaScript 🚀:
 
 EJS é uma engine de template que utiliza JavaScript incorporado em arquivos de modelo para gerar HTML dinâmico. Como configurar e utilizar o EJS em um projeto Node.js, destacando suas principais características.
+~~~javascript
+app.set("view engine", "ejs");
+~~~
+---
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/main.css">
+```
 
 ---
 
 ## 5. Pug - Template Engine Simplificada 🌀:
 
 Pug, anteriormente conhecido como Jade, é uma engine de template que oferece uma sintaxe simplificada para a criação de modelos. Este tópico aborda a configuração e o uso do Pug, destacando suas peculiaridades e vantagens.
+~~~javascript
+// Configurando o template engine Pug
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+~~~
+
+---
+
+```pug
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title My Shop
+    body 
+    header.main-header 
+        nav.main-header__nav 
+            ul.main-header__item-list 
+                li.main-header__item 
+                    a.main-header__item(href="/") Shop
+                li.main-header__item 
+                    a.main-header__item(href="/admin/add-product") Add Product
+```
 
 ---
 
 ## 6. Express Handlebars - Integração com o Express 🤝:
 
 Express Handlebars é uma engine de template que se integra perfeitamente ao framework Express. Foi entendido como configurar e utilizar o Express Handlebars para renderização de visualizações em um aplicativo Node.js, explorando suas funcionalidades específicas.
+~~~javascript
+app.engine(
+  "hbs",
+  expressHbs({
+    layoutsDir: "views/layouts/",
+    defaultLayout: "main-layout",
+    extname: "hbs"
+  })
+);
+app.set("view engine", "hbs");
+app.set("views", "views");
+~~~
+---
+```hbs
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="/">Shop</a></li>
+                <li class="main-header__item"><a href="/admin/add-product">Add Product</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Page Not Found!</h1>
+</body>
+
+</html>
+```
 
 ---
 
