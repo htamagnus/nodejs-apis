@@ -70,3 +70,27 @@ app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
 - Se o tipo MIME for permitido, o callback é chamado com cb(null, true) (indicando que o arquivo é aceito);
 - Se o tipo MIME não estiver na lista permitida, o callback é chamado com cb(null, false) (indicando que o arquivo é rejeitado);
 - `fileFilter: fileFilter`: Adiciona a função de filtro ao middleware Multer. Isso garante que apenas os arquivos que passam pelo filtro serão aceitos.
+
+---
+
+### Fazendo downloading de arquivos
+~~~javascript
+const fs = require('fs');
+const path = require('path');
+
+exports.getInvoice = (req, res, next) => {
+  const orderId = req.params.orderId; // Obtém o parâmetro de URL orderId da requisição
+  const invoiceName = 'invoice-' + orderId + '.pdf'; // Constrói o nome do arquivo PDF da fatura com base no orderId.
+  const invoicePath = path.join('data', 'invoices', invoiceName);
+
+  fs.readFile(invoicePath, (err, data) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.setHeader('Content-Type', 'application/pdf'); // Define o tipo de conteúdo da resposta como 'application/pdf', indicando que o arquivo sendo enviado é um PDF.
+    res.setHeader('Content-Disposition', 'inline; filename="' + invoiceName + '"');
+    res.send(data); // Define o cabeçalho 'Content-Disposition' para indicar como o navegador deve exibir o arquivo. Neste caso, 'inline' significa que o navegador deve tentar exibir o PDF diretamente, e o nome do arquivo é especificado.
+  });
+}
+~~~
