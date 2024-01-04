@@ -26,13 +26,29 @@ Este projeto Node.js é dedicado ao tratamento eficiente de uploads e downloads 
 ### Upload de Arquivos com o middleware Multer 📤
 - O Multer é uma biblioteca para o Node.js que facilita o tratamento de uploads de arquivos em aplicações web construídas com o framework Express. Essa biblioteca simplifica o processo de receber, armazenar e manipular arquivos enviados por meio de formulários da web.
 ~~~javascript
-const multer = require('multer');
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images');
+  },
+  filename: (req, file, cb) => {
+    // cb(null, new Date().toISOString() + '-' + file.originalname);
+    cb(null, new Date().toISOString() + '-' + file.originalname);
+  }
+});
 
-// Configuração do Multer para lidar com uploads de arquivos para o diretório 'images'
-app.use(multer({ dest: 'images' }).single('image'));
-
-// Usa .single('image') para indicar que estamos lidando com upload de um único arquivo com o campo chamado 'image'.
+app.use(multer({ storage: fileStorage }).single('image'));
 ~~~
+**Configuração de Armazenamento:**
+- `multer.diskStorage` é utilizado para configurar o armazenamento em disco. Ele permite definir a pasta de destino (destination) e o nome do arquivo (filename);
+- `destination:` Define o diretório para onde os arquivos serão armazenados;
+- `filename:` Define o nome do arquivo;
+
+**Middleware Multer:**
+- `app.use(multer({ storage: fileStorage }).single('image')):` Configura o middleware Multer para processar uploads de arquivos;
+- `storage:` Informa ao Multer para usar a configuração definida em fileStorage;
+- `single('image'):` Indica que estamos lidando com o upload de um único arquivo e o campo do formulário é chamado 'image';
+
+**HTML:**
 Já no HTML, para permitir o upload de arquivos, é utilizado o `enctype="multipart/form-data"`
 
 ---
