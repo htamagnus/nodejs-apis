@@ -1,74 +1,83 @@
-## Projeto Node.js de Paginação 🚀
-Este projeto Node.js é dedicado à implementação eficiente e amigável de paginação para lidar com grandes conjuntos de dados. Abaixo, destacamos os principais aspectos e funcionalidades deste projeto:
-
-### Paginação Robusta 📖🔄
-Implementação sólida e eficiente de paginação para facilitar a navegação em grandes volumes de dados.
+## Projeto Node.js de Tratamento de Requisições Assíncronas 🚀
+Este projeto em Node.js tem como foco o tratamento eficiente de requisições assíncronas em aplicações. Aqui estão os principais tópicos abordados durante o desenvolvimento:
 
 ---
 
-### Controle de Navegação 🎯🚀
-Permita que os usuários naveguem facilmente entre as diferentes páginas do conjunto de dados, proporcionando uma experiência de usuário amigável.
-
----
-
-## Lógica de paginação com MongoDB e Mongoose 📊💡
-Essa implementação fornece uma experiência de navegação por páginas para os usuários, permitindo que eles percorram grandes conjuntos de dados:
+### Como realizar operações assíncronas ⏳
+- A função utiliza o método Fetch para enviar uma solicitação DELETE para o servidor, incluindo o ID do produto e o token CSRF nos cabeçalhos. Em caso de sucesso, ela remove o elemento do produto da DOM;
+- Essa função é um exemplo de como realizar operações assíncronas (como solicitações HTTP) de forma eficiente, tratando tanto o sucesso quanto as condições de erro;
 ~~~javascript
-const page = +req.query.page || 1; 
-let totalItems;
+const deleteProduct = (btn) => {
+    // Obtem o ID do produto e o token CSRF do elemento HTML pai do botão
+    const prodId = btn.parentNode.querySelector('[name=productId]').value;
+    const csrf = btn.parentNode.querySelector('[name=_csrf]').value;
 
-Product.find().countDocuments().then(numProducts => {
-  totalItems = numProducts;
+    // Encontra o elemento do produto mais próximo (ancestral mais próximo do tipo 'article')
+    const productElement = btn.closest('article');
 
-  return Product.find()
-    .skip((page - 1) * ITEMS_PER_PAGE) // PAGINATION: pular os primeiros n itens na página atual
-    .limit(ITEMS_PER_PAGE); // PAGINATION: limitar o número de itens por página
-})
-.then(products => {
-  res.render('shop/index', {
-    prods: products,
-    pageTitle: 'Shop',
-    path: '/',
-    totalProducts: totalItems,
-    hasNextPage: ITEMS_PER_PAGE * page < totalItems,
-    hasPreviousPage: page > 1,
-    nextPage: page + 1,
-    previousPage: page - 1,
-    lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE)
-  });
-});
+    // Enviar uma solicitação DELETE ao servidor
+    fetch('/admin/product/' + prodId, {
+        method: 'DELETE',
+        headers: {
+            'csrf-token': csrf
+        }
+    }).then(result => {
+        // Analisa a resposta JSON
+        return result.json();
+    }).then(data => {
+        // Manipula os dados da resposta (pode incluir mensagens de sucesso, etc.)
+        console.log(data);
+        
+        // Remove o elemento do produto da DOM
+        productElement.parentNode.removeChild(productElement);
+    }).catch(err => {
+        // Lida com erros durante a solicitação
+        console.log(err);
+    })
+}
 ~~~
-- `Product.find().countDocuments().then(numProducts => { totalItems = numProducts;`: Utiliza countDocuments() para contar o número total de documentos na coleção Product. O resultado é atribuído à variável totalItems;
-- `return Product.find().skip((page - 1) * ITEMS_PER_PAGE).limit(ITEMS_PER_PAGE);`: Retorna uma consulta à coleção Product com a lógica de paginação incluída. A consulta pula os primeiros N itens com base na página atual e limita o número de itens retornados por página;
-- `totalProducts`: O número total de itens na coleção;
-- `hasNextPage`: Indica se há uma próxima página com base na lógica de paginação;
-- `hasPreviousPage`: Indica se há uma página anterior com base na lógica de paginação;
-- `nextPage`: Número da próxima página;
-- `previousPage`: Número da página anterior;
-- `lastPage`: Número total de páginas necessárias para exibir todos os itens;
+
+### Mudança na manipulação da resposta do servidor 🔄
+A diferença entre o código "antes" e "depois" está relacionada à mudança na manipulação da resposta do servidor e à utilização de um código de status HTTP mais adequado. Aqui estão os pontos-chave de cada versão:
+
+#### Antes 🕰️
+~~~javascript
+exports.postDeleteProduct = (req, res, next) => {
+  const prodId = req.body.productId;
+  // ... (código restante)
+  .then(() => {
+    console.log('DESTROYED PRODUCT');
+    res.redirect('/admin/products');
+  })
+  .catch(err => {
+    const error = new Error(err);
+    error.httpStatusCode = 500;
+    return next(error);
+  });
+~~~
+  - Quando a req vem do body, o ID do produto era esperado no corpo da solicitação. Isso é comum em solicitações POST, especialmente quando os dados do formulário são enviados no corpo da solicitação.
+
 ---
 
-## Lógica de paginação com EJS 🖼️🔄
-Essa implementação cria uma barra de navegação de página dinâmica, permitindo que os usuários naveguem entre as páginas de um conjunto paginado de itens. 
-```ejs
-<section class="pagination">
-    <% if (currentPage !== 1 && previousPage !== 1) { %>
-        <a href="?page=1">1</a>
-    <% } %>
-    <% if (hasPreviousPage) { %>
-        <a href="?page=<%= previousPage %>"><%= previousPage %></a>
-    <% } %>
-    <a href="?page=<%= currentPage %>" class="active"><%= currentPage %></a>
-    <% if (hasNextPage) { %>
-        <a href="?page=<%= nextPage %>"><%= nextPage %></a>
-    <% } %>
-    <% if (lastPage !== currentPage && nextPage !== lastPage) { %>
-        <a href="?page=<%= lastPage %>"><%= lastPage %></a>
-    <% } %>
-</section>
-```
+#### Depois 🔄
+~~~javascript
+exports.deleteProduct = (req, res, next) => {
+  const prodId = req.params.productId;
+  // ... (código restante)
+  .then(() => {
+    console.log('DESTROYED PRODUCT');
+    res.status(200).json({ message: 'Success!' });
+  })
+  .catch(err => {
+    res.status(500).json({ message: 'Deleting product failed.' });
+  });
+};
+~~~
 
-- `<% if (currentPage !== 1 && previousPage !== 1) { %>` : Verifica se a página atual não é a primeira e se a página anterior não é a primeira;
-- `<% if (lastPage !== currentPage && nextPage !== lastPage) { %>` : Verifica se a última página não é igual à página atual e se a próxima página não é a última página;
+- Quando a req vem do parâmetros da URL, o Express extrai automaticamente os valores dos parâmetros da URL e os disponibiliza em req.params;
+
+- A diferença entre req.body e req.params está relacionada à forma como os dados são enviados na solicitação HTTP;
+
+- A escolha entre req.body e req.params depende da forma como os dados são enviados na solicitação. No contexto de uma solicitação de exclusão (DELETE), é comum passar o ID do recurso a ser excluído como parte da URL (req.params), pois a operação de exclusão está relacionada diretamente ao recurso identificado pelo ID na URL;
 
 ---
