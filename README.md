@@ -10,8 +10,8 @@
 - [Model-View-Controller (MVC)](6-model-view-controller-mvc/) : *Compreensão e implementação da arquitetura MVC*;
 - [Advanced Routes & Models, Node + MySQL](7-advanced-routes-and-models-node/) : *Roteamento avançado e trabalho com bancos de dados SQL usando MySQL*;
 - [Using Sequelize, Node + NoSQL (MongoDB)](8-sequelize-node/) : *Sequelize ORM para bancos de dados SQL e MongoDB para NoSQL*;
-- [Using Mongoose](mongoose/) : *Interação com o MongoDB usando Mongoose ODM*;
-- [Sessions & Cookies](sessions-and-cookies/): *Gerenciamento de sessões e cookies para autenticação de usuários*;
+- [Using Mongoose](9-mongoose/) : *Interação com o MongoDB usando Mongoose ODM*;
+- [Sessions & Cookies](10-sessions-and-cookies/): *Gerenciamento de sessões e cookies para autenticação de usuários*;
 - [Authentication](authentication/): *Implementação de autenticação de usuários em aplicativos Node.js*;
 - [Sending E-mails](sending-emails/) : *Integração de funcionalidade de e-mail em seu aplicativo Node.js*;
 - [Authentication Deep Dive](advanced-authentication/) : *Uma exploração mais profunda de várias estratégias de autenticação*;
