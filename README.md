@@ -2,25 +2,25 @@
 
 ## Tecnologias e conceitos utilizados 🚀
 
-- [JavaScript Refresher](1-js-quick-refresher/) : *Uma rápida revisão dos conceitos básicos do JavaScript para atualizar o conhecimento*;
-- [Node.js Basics](2-understanding-basics-node-js/) : *Conceitos fundamentais do Node.js para o desenvolvimento no lado do servidor*;
-- [Efficient Development](3-enhancing-the-app/) : *Melhores práticas e dicas para desenvolvimento eficiente com Node.js*;
-- [Using Express.js](4-using-express/) : *Introdução ao popular framework web para Node.js, Express.js*;
-- [Templating Engines](5-templating-engines/) : *Implementação de motores de templates para renderização de conteúdo dinâmico*;
-- [Model-View-Controller (MVC)](6-model-view-controller-mvc/) : *Compreensão e implementação da arquitetura MVC*;
-- [Advanced Routes & Models, Node + MySQL](7-advanced-routes-and-models-node/) : *Roteamento avançado e trabalho com bancos de dados SQL usando MySQL*;
-- [Using Sequelize, Node + NoSQL (MongoDB)](8-sequelize-node/) : *Sequelize ORM para bancos de dados SQL e MongoDB para NoSQL*;
-- [Using Mongoose](9-mongoose/) : *Interação com o MongoDB usando Mongoose ODM*;
-- [Sessions & Cookies](10-sessions-and-cookies/): *Gerenciamento de sessões e cookies para autenticação de usuários*;
-- [Authentication](11-authentication/): *Implementação de autenticação de usuários em aplicativos Node.js*;
-- [Sending E-mails](12-sending-emails/) : *Integração de funcionalidade de e-mail em seu aplicativo Node.js*;
-- [Authentication Deep Dive](13-advanced-authentication/) : *Uma exploração mais profunda de várias estratégias de autenticação*;
-- [User Input Validation](14-input-validation/) :*Validação e tratamento seguro de entrada de usuários*;
-- [Error Handling](15-error-handling/) : *Estratégias para tratamento eficaz de erros em aplicativos Node.js*;
-- [File Uploads & Downloads](16-uploads-and-downloads/) : *Tratamento de upload e download de arquivos*;
-- [Pagination](17-pagination/) : *Implementação de paginação para grandes conjuntos de dados*;
-- [Async Requests](18-async-requests/) *Tratamento de requisições assíncronas em aplicativos Node.js*;
-- [Handling Payments](19-payments/) : *Integração de funcionalidade de pagamento usando várias gateways de pagamento*;
+- [JavaScript Refresher](js-quick-refresher/) : *Uma rápida revisão dos conceitos básicos do JavaScript para atualizar o conhecimento*;
+- [Node.js Basics](understanding-basics-node-js/) : *Conceitos fundamentais do Node.js para o desenvolvimento no lado do servidor*;
+- [Efficient Development](enhancing-the-app/) : *Melhores práticas e dicas para desenvolvimento eficiente com Node.js*;
+- [Using Express.js](using-express/) : *Introdução ao popular framework web para Node.js, Express.js*;
+- [Templating Engines](templating-engines/) : *Implementação de motores de templates para renderização de conteúdo dinâmico*;
+- [Model-View-Controller (MVC)](model-view-controller-mvc/) : *Compreensão e implementação da arquitetura MVC*;
+- [Advanced Routes & Models, Node + MySQL](advanced-routes-and-models-node/) : *Roteamento avançado e trabalho com bancos de dados SQL usando MySQL*;
+- [Using Sequelize, Node + NoSQL (MongoDB)](sequelize-node/) : *Sequelize ORM para bancos de dados SQL e MongoDB para NoSQL*;
+- [Using Mongoose](mongoose/) : *Interação com o MongoDB usando Mongoose ODM*;
+- [Sessions & Cookies](sessions-and-cookies/): *Gerenciamento de sessões e cookies para autenticação de usuários*;
+- [Authentication](authentication/): *Implementação de autenticação de usuários em aplicativos Node.js*;
+- [Sending E-mails](sending-emails/) : *Integração de funcionalidade de e-mail em seu aplicativo Node.js*;
+- [Authentication Deep Dive](advanced-authentication/) : *Uma exploração mais profunda de várias estratégias de autenticação*;
+- [User Input Validation](input-validation/) :*Validação e tratamento seguro de entrada de usuários*;
+- [Error Handling](error-handling/) : *Estratégias para tratamento eficaz de erros em aplicativos Node.js*;
+- [File Uploads & Downloads](uploads-and-downloads/) : *Tratamento de upload e download de arquivos*;
+- [Pagination](pagination/) : *Implementação de paginação para grandes conjuntos de dados*;
+- [Async Requests](async-requests/) *Tratamento de requisições assíncronas em aplicativos Node.js*;
+- [Handling Payments](payments/) : *Integração de funcionalidade de pagamento usando várias gateways de pagamento*;
 - **REST API Basics**: *Construção e consumo de APIs RESTful*;
 - **Advanced REST API Features**: *Recursos avançados e melhores práticas para APIs RESTful*;
 - **Using async-await**: *Alavancagem de async-await para código assíncrono em Node.js*;
