@@ -87,7 +87,7 @@ O teste usa Mocha e Chai para verificar se o middleware se comporta conforme esp
 
 ~~~javascript
 const { expect } = require('chai');
-const authMiddleware = require('./caminho/do/middleware');  // Substitua pelo caminho real
+const authMiddleware = require('../middleware/is-auth');
 
 it ('should throw an error if no authorization header is present', function() {
   const req = {
