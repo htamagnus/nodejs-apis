@@ -28,6 +28,5 @@
 - **Websockets & Socket.io**: *Comunicação em tempo real usando Websockets e Socket.io*;
 - **GraphQL**: *Compreensão e implementação de GraphQL em Node.js*;
 - **Deployment**: *Implantação de aplicativos Node.js em produção*;
-- **Beyond Web Servers**: *Exploração de casos de uso além de servidores web típicos*;
 - **Node + Typescript**: *Integração de TypeScript em projetos Node.js*;
 - **Deno**: *Exploração do Deno como uma alternativa ao Node.js*;
