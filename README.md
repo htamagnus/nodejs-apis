@@ -23,7 +23,7 @@
 - [Handling Payments](payments/) : *Integração de funcionalidade de pagamento usando várias gateways de pagamento*;
 - [REST API Basics](rest-APIs/) : *Construção e consumo de APIs RESTful*;
 - [Advanced REST API Features](rest-APIs/) : *Recursos avançados e melhores práticas para APIs RESTful*;
-- **Using async-await**: *Alavancagem de async-await para código assíncrono em Node.js*;
+- [Using async-await](async/await/) : *Alavancagem de async-await para código assíncrono em Node.js*;
 - **Websockets & Socket.io**: *Comunicação em tempo real usando Websockets e Socket.io*;
 - **GraphQL**: *Compreensão e implementação de GraphQL em Node.js*;
 - **Deployment**: *Implantação de aplicativos Node.js em produção*;
