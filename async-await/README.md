@@ -6,7 +6,7 @@ A transformação do código para utilizar async/await traz uma abordagem mais c
 
 ---
 
-## Código antes usando .then() e catch():
+## Código antes usando .then() e catch() 🔄
 ~~~javascript
 exports.getPosts = (req, res, next) => {
   const currentPage = req.query.page || 1;
@@ -38,7 +38,7 @@ exports.getPosts = (req, res, next) => {
 
 ---
 
-## Código depois utilizando async await:
+## Código depois utilizando async await ⌛
 ~~~javascript
 exports.getPosts = async (req, res, next) => {
   const currentPage = req.query.page || 1;
@@ -63,7 +63,7 @@ exports.getPosts = async (req, res, next) => {
 };
 ~~~
 
-### Principais Alterações:
+### Principais Alterações 🚧
 - **Utilização de await:** A contagem de documentos `(totalItems)` e a busca de posts agora utilizam await, tornando o código mais linear e fácil de entender.
 - **Bloco try/catch:** Em vez de encadear `.then()` e usar `.catch()` para tratar erros, agora é utilizado um bloco `try/catch`, o que simplifica a lógica de tratamento de erros.
 
