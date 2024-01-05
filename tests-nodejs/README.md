@@ -182,7 +182,7 @@ jwt.verify.restore();
 
 ---
 
-## Testando funções assíncronas e conexão com o banco de dados
+## Testando funções assíncronas
 Este teste específico verifica se o controlador de autenticação lida corretamente com uma falha ao acessar o banco de dados durante o processo de login.
 
 ~~~javascript
@@ -216,5 +216,59 @@ describe("Auth Controller - Login", function () {
 - Um objeto req simulado é criado para representar uma solicitação com informações de login.
 - A função `findOne` do modelo `User` é substituída por um `stub`, e configurei o stub para lançar uma exceção quando chamado. Isso simula o comportamento de uma falha ao acessar o banco de dados.
 - A função login do controlador é chamada com o objeto req simulado. É usado `.then` para esperar a resolução da Promessa retornada pela função login. Dentro do bloco `.then`, são feitas assertivas para verificar se o resultado é um erro com o código de `status 500`.
+
+---
+
+## Fazendo testes com um banco de dados ativo:
+Este teste verifica se a função getUserStatus do controlador de autenticação responde corretamente ao fornecer o status de um usuário existente.
+~~~javascript
+ it("should send a response with a valid user status for an existing user", function (done) {
+    mongoose
+      .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+      .then((result) => {
+        // Cria um novo objeto User e salva-o no banco de dados.
+        const user = new User({
+          email: "test@test.com",
+          password: "tester",
+          name: "Test",
+          posts: [],
+          _id: "5c0f66b979af55031b34728a",
+        });
+        return user.save();
+      })
+      .then(() => {
+        // Configura o objeto req simulado com o userId de um usuário existente.
+        const req = { userId: "5c0f66b979af55031b34728a" };
+        // Configura o objeto res simulado que captura o status do usuário e o código de status HTTP.
+        // Cria mock das funções status e json do objeto res
+        const res = {
+          statusCode: 500,
+          userStatus: null,
+          status: function (code) {
+            this.statusCode = code;
+            return this;
+          },
+          json: function (data) {
+            this.userStatus = data.status;
+          },
+        };
+        // Chama a função getUserStatus do controlador de autenticação com o objeto req e res simulados.
+        AuthController.getUserStatus(req, res, () => {}).then(() => {
+          // As assertivas verificam se o código de status HTTP é 200 e se o status do usuário é "I am new!".
+          expect(res.statusCode).to.be.equal(200);
+          expect(res.userStatus).to.be.equal("I am new!");
+          // Após a execução do teste, exclui todos os documentos da coleção User.
+          // Desconecta do banco de dados MongoDB.
+          User.deleteMany({})
+            .then(() => {
+              return mongoose.disconnect();
+            })
+            .then(() => {
+              done();
+            });
+        });
+      });
+  });
+~~~
 
 ---
