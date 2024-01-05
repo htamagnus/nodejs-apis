@@ -167,3 +167,23 @@ JSON é amplamente preferido em muitas APIs REST devido à sua simplicidade, lev
 - Importância: Oferece flexibilidade na evolução do cliente, permitindo que novas funcionalidades sejam incorporadas dinamicamente sem a necessidade de atualizar todo o cliente.
 
 ---
+
+## CORS (Cross-Origin Resource Sharing) 🌐
+O CORS (Cross-Origin Resource Sharing) é uma política de segurança implementada pelos navegadores web para controlar as solicitações HTTP entre diferentes origens (domínios, esquemas ou portas). Essa política é projetada para evitar potenciais riscos de segurança ao permitir que recursos em uma página web sejam solicitados a partir de um domínio diferente do que a própria página.
+~~~javascript
+app.use((req, res, next) => {
+    // Configuração do cabeçalho 'Access-Control-Allow-Origin' para permitir acesso de qualquer origem (*).
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Configuração dos métodos HTTP permitidos.
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+
+    // Configuração dos cabeçalhos permitidos.
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    // Chama a próxima função no middleware.
+    next();
+});
+~~~
+
+---
