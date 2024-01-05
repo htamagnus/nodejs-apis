@@ -40,7 +40,8 @@ Geralmente, as REST APIs utilizam formatos de dados comuns, como JSON, para repr
 ### Acessando Dados com REST APIs e Formatos de Dados 📊
 Ao interagir com REST APIs para acessar dados, a escolha do formato de dados desempenha um papel crucial na eficiência da comunicação entre o cliente e o servidor. Formatos de dados comuns utilizados:
 
-1. **HTML 📄** 
+1. **HTML 📄**
+   
 Embora não seja o formato de escolha para troca de dados em REST APIs, o HTML é frequentemente utilizado para representar dados quando a resposta precisa ser diretamente renderizada no navegador. No entanto, em muitos cenários de APIs REST, a preferência recai sobre formatos mais leves e estruturados.
 - **Dados e Estrutura:** HTML é frequentemente usado quando os dados precisam ser diretamente renderizados no navegador, combinando dados e estrutura de maneira inseparável.
 - **Interface do Usuário:** Contém elementos da interface do usuário.
@@ -49,6 +50,7 @@ Embora não seja o formato de escolha para troca de dados em REST APIs, o HTML �
 ---
 
 2. **Plain Text 🔤**
+   
 O formato de texto puro é simples e leve, mas geralmente é limitado em termos de estruturação de dados. É mais adequado para casos em que a simplicidade é crucial, mas a falta de estrutura pode tornar a interpretação dos dados menos intuitiva em comparação com formatos mais estruturados.
 - **Dados:** Representa apenas os dados, sem suposições sobre a interface do usuário.
 - **Interface do Usuário:** Nenhuma.
@@ -57,6 +59,7 @@ O formato de texto puro é simples e leve, mas geralmente é limitado em termos 
 ---
 
 3. **XML 📄**
+   
 XML é um formato de dados estruturado que oferece flexibilidade na representação de informações hierárquicas. Ele é legível por humanos e máquinas, tornando-se uma escolha comum em muitas implementações de APIs REST. No entanto, XML tende a ser mais verboso em comparação com JSON, o que pode aumentar o tamanho das mensagens de dados e a sobrecarga na comunicação.
 - **Dados:** Estrutura os dados hierarquicamente.
 - **Interface do Usuário:** Nenhuma.
@@ -66,6 +69,7 @@ XML é um formato de dados estruturado que oferece flexibilidade na representaç
 ---
 
 4. **JSON 📄**
+   
 JSON é amplamente preferido em muitas APIs REST devido à sua simplicidade, leveza e fácil interpretação por parte de máquinas. Ele é estruturado como pares chave-valor e suporta listas aninhadas, tornando-o eficaz na representação de dados complexos. Além disso, a simplicidade e a familiaridade do formato JSON o tornam uma escolha popular para desenvolvedores.
 - **Interface do Usuário:** Nenhuma.
 - **Legibilidade Máquina e Humano:** Legível por máquinas e humanos; pode ser facilmente convertido para objetos JavaScript.
