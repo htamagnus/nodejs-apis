@@ -71,3 +71,24 @@ if (new Date().getDate() === 15) {
 	minhaVariavel = "Hoje é o dia 15";
 }
 ~~~
+
+---
+
+## Generics
+- generics permitem criar estruturas que serão adaptáveis a vários tipos de dados;
+- esse conceito ajuda a reaproveitar melhor o código e tornar flexível para diversas situações;
+- para definir um generic, basta informar um tipo genérico usando os sinais de menor e maior <> ;
+~~~typescript
+interface Iprocessamento<TipoInterface> {
+	valor: TipoInterface;
+	
+	realizarProcessamento(arg: TipoInterface): TipoInterface;
+}
+
+const string: IProcessamento = {
+	valor: "hcode",
+	realizarProcessamento(argumento: string): string {
+			return argumento.toUpperCase();
+	}
+}
+~~~
