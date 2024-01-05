@@ -181,3 +181,40 @@ jwt.verify.restore();
 ~~~
 
 ---
+
+## Testando funções assíncronas e conexão com o banco de dados
+Este teste específico verifica se o controlador de autenticação lida corretamente com uma falha ao acessar o banco de dados durante o processo de login.
+
+~~~javascript
+const expect = require("chai").expect;
+const sinon = require("sinon");
+
+const User = require("../models/user");
+
+const AuthController = require("../controllers/auth");
+
+describe("Auth Controller - Login", function () {
+    it("should throw an error with code 500 if accessing the database fails", function (done) {
+        sinon.stub(User, "findOne");
+        User.findOne.throws();
+        const req = {
+            body: {
+                email: "test@test.com",
+                password: "tester"
+            }
+        }
+        AuthController.login(req, {}, () => {}).then(result => {
+            expect(result).to.be.an("error");
+            expect(result).to.have.property("statusCode", 500);
+            done();
+        });
+        User.findOne.restore();
+    })
+})
+~~~
+
+- Um objeto req simulado é criado para representar uma solicitação com informações de login.
+- A função `findOne` do modelo `User` é substituída por um `stub`, e configurei o stub para lançar uma exceção quando chamado. Isso simula o comportamento de uma falha ao acessar o banco de dados.
+- A função login do controlador é chamada com o objeto req simulado. É usado `.then` para esperar a resolução da Promessa retornada pela função login. Dentro do bloco `.then`, são feitas assertivas para verificar se o resultado é um erro com o código de `status 500`.
+
+---
