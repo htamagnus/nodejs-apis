@@ -6,6 +6,7 @@ Em Node.js, os testes são uma parte essencial do desenvolvimento para garantir 
 Testes manuais referem-se à execução de testes por desenvolvedores ou testadores sem o uso de ferramentas automatizadas. Os testadores interagem diretamente com o aplicativo para verificar se ele se comporta conforme o esperado.
 
 **Quando Usar 🕹️** 
+
 Testes manuais são úteis para validar rapidamente alterações específicas no código, explorar casos de uso complexos e verificar a experiência do usuário.
 
 **Prós 👍** 
@@ -23,6 +24,7 @@ Testes manuais são úteis para validar rapidamente alterações específicas no
 Testes automatizados envolvem o uso de ferramentas e scripts para executar testes de forma programática, sem intervenção manual. Podem ser divididos em diferentes categorias, como testes unitários, testes de integração, testes de sistema, etc.
 
 **Quando Usar 🕹️**
+
 Testes automatizados são ideais para validar pequenas partes do código (testes unitários), garantir a integridade de sistemas complexos (testes de integração) e verificar se a aplicação atende aos requisitos especificados (testes de sistema).
 
 **Prós 👍**
@@ -41,24 +43,28 @@ Testes automatizados são ideais para validar pequenas partes do código (testes
 Mocha é um dos frameworks de teste mais populares para JavaScript, sendo amplamente utilizado tanto no lado do cliente (front-end) quanto no servidor (Node.js). Ele fornece uma estrutura flexível e extensível para escrever testes, suportando diversos estilos de assertividade e integração com bibliotecas de mocking e stubbing .
 
 ### Características Principais 🧪
-1. **Suporte a Diversos Estilos de Assertividade 🔄**
+1. **Suporte a Diversos Estilos de Assertividade 🔄:**
+   
 Mocha permite que você use qualquer biblioteca de assertividade de sua escolha, como `assert, should, ou expect`;
 
-2. **Estrutura de Teste Descritiva 📝** 
+2. **Estrutura de Teste Descritiva 📝:**
+   
 Mocha proporciona uma estrutura de teste descritiva e legível, utilizando funções como `describe, it, before, after, beforeEach, e afterEach`. Isso facilita a organização e compreensão dos testes.
 
-3. **Testes Assíncronos ⏳**
+3. **Testes Assíncronos ⏳:**
+   
 Suporta testes assíncronos, essenciais no ambiente Node.js, através do uso de `done` para sinalizar a conclusão ou da utilização de Promises ou `async/await`.
 
-4. **Reportagem de Testes 📊**
+4. **Reportagem de Testes 📊:**
+   
 Gera relatórios detalhados de testes, incluindo estatísticas de execução e feedback visual.
 
 --- 
 
-#### Exemplo de código e teste 💻🧪✨
+### Exemplo de código e teste 💻🧪✨
 Este exemplo envolve uma função de middleware destinada a verificar a presença de um cabeçalho de autorização (Authorization) em uma requisição HTTP. 
 
-**Código a ser testado 💻**
+**Código a ser testado 💻:**
 ~~~javascript
 module.exports = (req, res, next) => {
   const authHeader = req.get('Authorization');
@@ -76,6 +82,7 @@ O middleware exporta uma função que recebe os objetos `req`, `res` e `next` co
 ---
 
 **Teste com o Mocha e Chai 🧪✨**
+
 O teste usa Mocha e Chai para verificar se o middleware se comporta conforme esperado quando nenhum cabeçalho de autorização está presente na requisição. Ele cria um objeto `req` simulado com um método `get` que sempre retorna `null` para simular a ausência do cabeçalho de autorização. Em seguida, o teste chama o middleware e espera que ele lance um erro com a mensagem `'Not authenticated.'`.
 
 ~~~javascript
