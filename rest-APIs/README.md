@@ -6,31 +6,31 @@ As APIs REST (Representational State Transfer) são um estilo de arquitetura de 
 
 ### Por que usamos REST APIs? 📡
 
-1. **Desacoplar Frontend e Backend 🔄**
+1. **Desacoplar Frontend e Backend 🔄:**
    
 Nem todo frontend requer uma página HTML. Com o aumento da diversidade de plataformas, como aplicativos móveis, single-page web apps e serviços APIs, é crucial desacoplar o frontend do backend. REST APIs oferecem uma forma eficaz de comunicação entre essas camadas, permitindo que o frontend solicite e envie dados sem se preocupar com a lógica de servidor subjacente.
 
 ---
 
-2. **Representational State Transfer (RST) 📤**
+2. **Representational State Transfer (RST) 📤:**
    
 A abordagem RST é fundamental para entender o propósito das REST APIs. Ela enfatiza a transferência de dados em vez de interfaces de usuário. Isso significa que, ao interagir com uma REST API, apenas os dados associados a uma solicitação e resposta são modificados, não a lógica geral do lado do servidor. Isso promove uma comunicação mais eficiente e flexível entre clientes e servidores.
 
 ---
 
-3. **Padrões HTTP Simples 📩**
+3. **Padrões HTTP Simples 📩:**
    
 As REST APIs utilizam os métodos HTTP padrão, como GET, POST, PUT e DELETE, simplificando a interação entre sistemas distribuídos. Cada operação tem um significado claro, facilitando a compreensão e implementação.
 
 ---
 
-4. **Formato de Dados Comum 🔤**
+4. **Formato de Dados Comum 🔤:**
    
 Geralmente, as REST APIs utilizam formatos de dados comuns, como JSON, para representar informações. Isso facilita o processamento e interpretação dos dados em diferentes plataformas, proporcionando uma interoperabilidade mais suave.
 
 ---
 
-5. **Exemplos de Casos de Uso 💻**
+5. **Exemplos de Casos de Uso 💻:**
    
 - **Mobile Apps**: As REST APIs são amplamente utilizadas em aplicativos móveis para recuperar dados do servidor e enviar atualizações. A estrutura RST permite uma comunicação eficiente, adaptando-se aos desafios específicos de redes móveis.
 - **Single Page Web Apps (SPA):** SPAs aproveitam as REST APIs para dinamicamente carregar dados conforme necessário, proporcionando uma experiência de usuário mais fluida. As solicitações AJAX são comuns para interações assínuas, mantendo a aplicação responsiva.
