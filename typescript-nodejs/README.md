@@ -3,14 +3,14 @@
 ## Tipos de dados
 1. String;
 2. Number;
-3. Union Types:
+3. Boolean;
+4. Union Types:
 ~~~typescript
 let chavePix: string | number;
 chavePix = "agathamagnusg@hotmail.com"
 chavePix = "996864775"
 ~~~
 
-4. Boolean;
 5. Array:
 ~~~typescript
 const filmesCategorias: string[] = ["Comédia", "Drama", "Romance"];
