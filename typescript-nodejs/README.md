@@ -4,14 +4,14 @@
 1. String;
 2. Number;
 3. Boolean;
-4. Union Types:
+4. **Union Types:**
 ~~~typescript
 let chavePix: string | number;
 chavePix = "agathamagnusg@hotmail.com"
 chavePix = "996864775"
 ~~~
 
-5. Array:
+5. **Array:**
 ~~~typescript
 const filmesCategorias: string[] = ["Comédia", "Drama", "Romance"];
 
@@ -21,14 +21,14 @@ for (let ano = 2000; ano <= new Date().getFullYear(); ano++){
 }
 ~~~
 
-6. Tuple:
+6. **Tuple:**
 ~~~typescript
 let superset: [string, number, string];
 
 superset = ["Typescript", 2011, "Anders"];
 ~~~
 
-7. Object:
+7. **Object:**
 ~~~typescript
 const configuracaoServidor: object = {
 	servidor: "Microsoft Azure",
@@ -41,7 +41,7 @@ configuracaoServidor = {
 }
 ~~~
 
-8. Enum: 
+8. **Enum:** 
 - enumerar algum dado específico que queremos criar ou categorizar;
 - enumerar as permissões;
 ~~~typescript
@@ -52,7 +52,7 @@ enum Permission {
 }
 ~~~
 
-9. Null and Undefined:
+9. **Null and Undefined:**
 - null: ausência de valor, ex: uso no DOM, querySelector;
 - undefined: não especificou qual o valor da variável;
 - geralmente usado com union types;
