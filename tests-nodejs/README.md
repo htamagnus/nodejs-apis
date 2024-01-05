@@ -272,3 +272,40 @@ Este teste verifica se a função getUserStatus do controlador de autenticação
 ~~~
 
 ---
+
+## Hooks
+Este bloco de código Mocha configura `hooks (before e after)` para serem executados antes e depois de um conjunto de testes. Esses hooks são frequentemente usados para configurar e limpar o ambiente de teste.
+
+~~~javascript
+// Este bloco é executado uma vez antes de todos os testes no conjunto.
+before(function (done) {
+  mongoose
+    .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then((result) => {
+      const user = new User({
+        email: "test@test.com",
+        password: "tester",
+        name: "Test",
+        posts: [],
+        _id: "5c0f66b979af55031b34728a",
+      });
+      return user.save();
+    })
+    .then(() => {
+      done();
+    });
+});
+
+// Este bloco é executado uma vez após todos os testes no conjunto.
+after(function (done) {
+  User.deleteMany({})
+    .then(() => {
+      return mongoose.disconnect();
+    })
+    .then(() => {
+      done();
+    });
+});
+~~~
+
+---
