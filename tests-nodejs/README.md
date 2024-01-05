@@ -107,7 +107,7 @@ it ('should throw an error if no authorization header is present', function() {
 
 ---
 
-**Teste de verificação de token JWT**
+#### **Teste de verificação de token JWT**
 Este teste é útil para verificar se o middleware está comportando corretamente ao decodificar o token e atribuir o `userId` ao objeto `req`.
 
 ~~~javascript
@@ -131,7 +131,8 @@ it("should yield a userId after decoding the token", function () {
 
 Neste teste, um objeto req simulado é criado com um método get que sempre retorna a string 'Bearer xyz'. O teste utiliza Sinon para criar um stub da função verify do objeto jwt para simular a verificação do token. Após chamar o middleware (authMiddleware), são realizadas as expectativas para verificar se o userId foi corretamente atribuído ao objeto req e se a função verify foi chamada.
 
-**Configuração do Objeto req:**
+1. **Configuração do Objeto req:**
+
 Um objeto req simulado é criado com um método get que simula a obtenção do cabeçalho de autorização. O método get sempre retorna a string 'Bearer xyz', simulando assim um token de autorização no formato correto.
 ~~~javascript
 const req = {
@@ -141,7 +142,9 @@ const req = {
 };
 ~~~
 
-**Stubbing da Função verify do jwt:**
+---
+
+2. **Stubbing da Função verify do jwt:**
 
 Utilizando Sinon, a função verify do objeto jwt é substituída por um stub. O stub é configurado para retornar um objeto simulado contendo o userId "abc" quando chamado.
 ~~~javascript
@@ -149,13 +152,17 @@ sinon.stub(jwt, "verify");
 jwt.verify.returns({ userId: "abc" });
 ~~~
 
-**Chamada do Middleware:**
+---
+
+3. **Chamada do Middleware:**
 O middleware (authMiddleware) é chamado com o objeto req simulado. Isso aciona a execução do código no middleware, incluindo a verificação e decodificação do token.
 ~~~javascript
 authMiddleware(req, {}, () => {});
 ~~~
 
-**Expectativas (Assertions):**
+---
+
+4. **Expectativas (Assertions):**
 - A primeira assertiva verifica se o objeto `req` tem uma propriedade chamada `"userId"`.
 - A segunda assertiva verifica se o valor da propriedade "userId" é igual a "abc".
 - A terceira assertiva verifica se a função verify do jwt foi chamada pelo menos uma vez.
@@ -165,8 +172,12 @@ expect(req).to.have.property("userId", "abc");
 expect(jwt.verify.called).to.be.true;
 ~~~
 
-**Restauração da Função verify Original:**
+---
+
+5. **Restauração da Função verify Original:**
 Após a execução do teste, a função `restore` é chamada para restaurar a função verify do jwt à sua implementação original. Isso é importante para evitar efeitos colaterais em outros testes.
 ~~~javascript
 jwt.verify.restore();
 ~~~
+
+---
