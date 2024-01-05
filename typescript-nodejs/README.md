@@ -1,6 +1,6 @@
-## Projeto NodeJS com Typescript
+## Projeto NodeJS com Typescript 🚀
 
-## Tipos de dados
+## Tipos de dados 🎲
 1. String;
 2. Number;
 3. Boolean;
@@ -74,7 +74,7 @@ if (new Date().getDate() === 15) {
 
 ---
 
-## Generics
+## Generics 🔄
 - generics permitem criar estruturas que serão adaptáveis a vários tipos de dados;
 - esse conceito ajuda a reaproveitar melhor o código e tornar flexível para diversas situações;
 - para definir um generic, basta informar um tipo genérico usando os sinais de menor e maior <> ;
