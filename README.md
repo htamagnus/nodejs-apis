@@ -24,6 +24,7 @@
 - [REST API Basics](rest-APIs/) : *Construção e consumo de APIs RESTful*;
 - [Advanced REST API Features](rest-APIs/) : *Recursos avançados e melhores práticas para APIs RESTful*;
 - [Using async-await](async/await/) : *Alavancagem de async-await para código assíncrono em Node.js*;
+- [Tests with Mocha](tests-nodejs/) : *Testes manuais e automatizados em NodeJS com Mocha, Chai e Sinon*;
 - **Websockets & Socket.io**: *Comunicação em tempo real usando Websockets e Socket.io*;
 - **GraphQL**: *Compreensão e implementação de GraphQL em Node.js*;
 - **Deployment**: *Implantação de aplicativos Node.js em produção*;
